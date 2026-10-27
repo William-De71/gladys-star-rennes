@@ -5,7 +5,7 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions
 follow [Semantic Versioning](https://semver.org/). This file is generated at
 each release from the Conventional Commits: do not edit it by hand.
 
-## [0.1.0] - unreleased
+## [0.1.0] - 2026-10-27
 
 ### Added
 
@@ -17,3 +17,5 @@ each release from the Conventional Commits: do not edit it by hand.
 - Configuration actions: test the connection, find a stop by name (with the id, the lines and the destinations of each side of the street), add, list and remove stops, and a diagnostic written to the Logs tab.
 - Cloud transport: the official open data portal of STAR, no account and no key; stops read every 30 seconds to 5 minutes (stretched to stay within the daily quota of the portal), traffic every 5 minutes; lines and stops of the network kept in /data.
 - English, French, German and Spanish everywhere: settings, devices, widgets, scenes and documentation.
+
+[0.1.0]: https://github.com/William-De71/gladys-star-rennes/releases/tag/v0.1.0
