@@ -1,0 +1,2517 @@
+{
+  "manifest_version": 1,
+  "type": "device",
+  "name": "STAR Rennes",
+  "description": {
+    "en": "Rennes buses and metro (STAR): real-time passages, line traffic, metro lifts.",
+    "fr": "Bus et métro de Rennes (STAR) : passages en temps réel, trafic, ascenseurs.",
+    "de": "Busse und Metro in Rennes (STAR): Echtzeit-Abfahrten, Verkehrslage, Aufzüge.",
+    "es": "Autobuses y metro de Rennes (STAR): pasos en tiempo real, tráfico, ascensores."
+  },
+  "version": "0.1.0",
+  "docker_image": "ghcr.io/william-de71/gladys-star-rennes:0.1.0",
+  "gladys_version": ">=5.3.0",
+  "categories": ["transport"],
+  "keywords": [
+    "rennes",
+    "star",
+    "bus",
+    "métro",
+    "metro",
+    "keolis",
+    "ille-et-vilaine",
+    "horaires",
+    "transport en commun",
+    "public transport"
+  ],
+  "countries": ["FR"],
+  "cover_image": "https://raw.githubusercontent.com/William-De71/gladys-star-rennes/main/cover.jpg",
+  "transports": ["cloud"],
+  "config_schema": [
+    {
+      "key": "intro",
+      "type": "section",
+      "label": {
+        "en": "STAR open data",
+        "fr": "Open data STAR",
+        "de": "STAR Open Data",
+        "es": "Datos abiertos de STAR"
+      },
+      "description": {
+        "en": "The passages, the traffic and the state of the metro come from the official open data portal of STAR, the bus and metro network of Rennes Métropole (Keolis Rennes). No account and no key: fill in your stops and lines below, then press \"Test the connection\".",
+        "fr": "Les passages, le trafic et l’état du métro viennent du portail open data officiel du STAR, le réseau de bus et de métro de Rennes Métropole (Keolis Rennes). Ni compte ni clé : renseignez vos arrêts et vos lignes ci-dessous, puis appuyez sur « Tester la connexion ».",
+        "de": "Die Abfahrten, die Verkehrslage und der Zustand der Metro stammen aus dem offiziellen Open-Data-Portal von STAR, dem Bus- und Metronetz von Rennes Métropole (Keolis Rennes). Kein Konto und kein Schlüssel: Trage unten deine Haltestellen und Linien ein und drücke dann „Verbindung testen“.",
+        "es": "Los pasos, el tráfico y el estado del metro proceden del portal oficial de datos abiertos de STAR, la red de autobuses y metro de Rennes Métropole (Keolis Rennes). Sin cuenta ni clave: rellena tus paradas y líneas abajo y pulsa «Probar la conexión»."
+      },
+      "links": [
+        {
+          "url": "https://data.explore.star.fr/",
+          "label": {
+            "en": "STAR open data portal",
+            "fr": "Portail open data STAR",
+            "de": "Open-Data-Portal von STAR",
+            "es": "Portal de datos abiertos de STAR"
+          }
+        },
+        {
+          "url": "https://www.star.fr/",
+          "label": {
+            "en": "star.fr",
+            "fr": "star.fr",
+            "de": "star.fr",
+            "es": "star.fr"
+          }
+        }
+      ]
+    },
+    {
+      "key": "stop_1_section",
+      "type": "section",
+      "label": {
+        "en": "Stop 1",
+        "fr": "Arrêt 1",
+        "de": "Haltestelle 1",
+        "es": "Parada 1"
+      },
+      "description": {
+        "en": "The stop where you take the bus or the metro: its passages are read in real time. Type its name (\"République\") for every side of the street and the metro station, or an id (\"1242\") for one side only: the \"Find a stop\" button gives them. The line keeps only its passages (\"C1\", \"11\", \"a\" or \"b\" for the metro). The direction keeps only the destinations holding these words (\"Chantepie\", \"Poterie | Gaîté\").",
+        "fr": "L’arrêt où vous prenez le bus ou le métro : ses passages sont lus en temps réel. Saisissez son nom (« République ») pour tous les côtés de la rue et la station de métro, ou un identifiant (« 1242 ») pour un seul côté : le bouton « Chercher un arrêt » les donne. La ligne ne garde que ses passages (« C1 », « 11 », « a » ou « b » pour le métro). La direction ne garde que les destinations qui contiennent ces mots (« Chantepie », « Poterie | Gaîté »).",
+        "de": "Die Haltestelle, an der du Bus oder Metro nimmst: Ihre Abfahrten werden in Echtzeit gelesen. Gib ihren Namen („République“) für alle Straßenseiten und die Metrostation ein oder eine Kennung („1242“) für nur eine Seite: Die Schaltfläche „Haltestelle suchen“ liefert sie. Die Linie behält nur ihre Abfahrten („C1“, „11“, „a“ oder „b“ für die Metro). Die Richtung behält nur die Ziele mit diesen Wörtern („Chantepie“, „Poterie | Gaîté“).",
+        "es": "La parada donde tomas el autobús o el metro: sus pasos se leen en tiempo real. Escribe su nombre («République») para todos los lados de la calle y la estación de metro, o un identificador («1242») para un solo lado: el botón «Buscar una parada» los da. La línea solo conserva sus pasos («C1», «11», «a» o «b» para el metro). La dirección solo conserva los destinos que contienen estas palabras («Chantepie», «Poterie | Gaîté»)."
+      }
+    },
+    {
+      "key": "stop_1",
+      "type": "string",
+      "label": {
+        "en": "Stop",
+        "fr": "Arrêt",
+        "de": "Haltestelle",
+        "es": "Parada"
+      },
+      "placeholder": {
+        "en": "République",
+        "fr": "République",
+        "de": "République",
+        "es": "République"
+      },
+      "required": false
+    },
+    {
+      "key": "stop_1_line",
+      "type": "string",
+      "label": {
+        "en": "Line",
+        "fr": "Ligne",
+        "de": "Linie",
+        "es": "Línea"
+      },
+      "description": {
+        "en": "Empty for every line.",
+        "fr": "Vide pour toutes les lignes.",
+        "de": "Leer für alle Linien.",
+        "es": "Vacío para todas las líneas."
+      },
+      "placeholder": {
+        "en": "C1",
+        "fr": "C1",
+        "de": "C1",
+        "es": "C1"
+      },
+      "required": false
+    },
+    {
+      "key": "stop_1_direction",
+      "type": "string",
+      "label": {
+        "en": "Direction",
+        "fr": "Direction",
+        "de": "Richtung",
+        "es": "Dirección"
+      },
+      "description": {
+        "en": "Words of the destination. Empty for both directions.",
+        "fr": "Des mots de la destination. Vide pour les deux sens.",
+        "de": "Wörter des Ziels. Leer für beide Richtungen.",
+        "es": "Palabras del destino. Vacío para ambos sentidos."
+      },
+      "placeholder": {
+        "en": "Chantepie",
+        "fr": "Chantepie",
+        "de": "Chantepie",
+        "es": "Chantepie"
+      },
+      "required": false
+    },
+    {
+      "key": "stop_2_section",
+      "type": "section",
+      "label": {
+        "en": "Stop 2",
+        "fr": "Arrêt 2",
+        "de": "Haltestelle 2",
+        "es": "Parada 2"
+      }
+    },
+    {
+      "key": "stop_2",
+      "type": "string",
+      "label": {
+        "en": "Stop",
+        "fr": "Arrêt",
+        "de": "Haltestelle",
+        "es": "Parada"
+      },
+      "placeholder": {
+        "en": "Gares",
+        "fr": "Gares",
+        "de": "Gares",
+        "es": "Gares"
+      },
+      "required": false
+    },
+    {
+      "key": "stop_2_line",
+      "type": "string",
+      "label": {
+        "en": "Line",
+        "fr": "Ligne",
+        "de": "Linie",
+        "es": "Línea"
+      },
+      "description": {
+        "en": "Empty for every line.",
+        "fr": "Vide pour toutes les lignes.",
+        "de": "Leer für alle Linien.",
+        "es": "Vacío para todas las líneas."
+      },
+      "placeholder": {
+        "en": "a",
+        "fr": "a",
+        "de": "a",
+        "es": "a"
+      },
+      "required": false
+    },
+    {
+      "key": "stop_2_direction",
+      "type": "string",
+      "label": {
+        "en": "Direction",
+        "fr": "Direction",
+        "de": "Richtung",
+        "es": "Dirección"
+      },
+      "description": {
+        "en": "Words of the destination. Empty for both directions.",
+        "fr": "Des mots de la destination. Vide pour les deux sens.",
+        "de": "Wörter des Ziels. Leer für beide Richtungen.",
+        "es": "Palabras del destino. Vacío para ambos sentidos."
+      },
+      "placeholder": {
+        "en": "Poterie",
+        "fr": "Poterie",
+        "de": "Poterie",
+        "es": "Poterie"
+      },
+      "required": false
+    },
+    {
+      "key": "stop_3_section",
+      "type": "section",
+      "label": {
+        "en": "Stop 3",
+        "fr": "Arrêt 3",
+        "de": "Haltestelle 3",
+        "es": "Parada 3"
+      },
+      "description": {
+        "en": "More stops (a home, a workplace…): the \"Add a stop\" button, under the form, follows up to 20 more, \"List the stops\" shows them all, numbered, and \"Remove a stop\" stops following one.",
+        "fr": "D’autres arrêts (maison, travail…) : le bouton « Ajouter un arrêt », sous le formulaire, en suit jusqu’à 20 de plus, « Lister les arrêts » les montre tous, numérotés, et « Retirer un arrêt » arrête d’en suivre un.",
+        "de": "Weitere Haltestellen (Zuhause, Arbeit…): Die Schaltfläche „Haltestelle hinzufügen“ unter dem Formular verfolgt bis zu 20 weitere, „Haltestellen auflisten“ zeigt alle nummeriert, und „Haltestelle entfernen“ beendet die Verfolgung einer Haltestelle.",
+        "es": "Más paradas (casa, trabajo…): el botón «Añadir una parada», bajo el formulario, sigue hasta 20 más, «Listar las paradas» las muestra todas, numeradas, y «Quitar una parada» deja de seguir una."
+      }
+    },
+    {
+      "key": "stop_3",
+      "type": "string",
+      "label": {
+        "en": "Stop",
+        "fr": "Arrêt",
+        "de": "Haltestelle",
+        "es": "Parada"
+      },
+      "placeholder": {
+        "en": "Villejean-Université",
+        "fr": "Villejean-Université",
+        "de": "Villejean-Université",
+        "es": "Villejean-Université"
+      },
+      "required": false
+    },
+    {
+      "key": "stop_3_line",
+      "type": "string",
+      "label": {
+        "en": "Line",
+        "fr": "Ligne",
+        "de": "Linie",
+        "es": "Línea"
+      },
+      "description": {
+        "en": "Empty for every line.",
+        "fr": "Vide pour toutes les lignes.",
+        "de": "Leer für alle Linien.",
+        "es": "Vacío para todas las líneas."
+      },
+      "placeholder": {
+        "en": "C4",
+        "fr": "C4",
+        "de": "C4",
+        "es": "C4"
+      },
+      "required": false
+    },
+    {
+      "key": "stop_3_direction",
+      "type": "string",
+      "label": {
+        "en": "Direction",
+        "fr": "Direction",
+        "de": "Richtung",
+        "es": "Dirección"
+      },
+      "description": {
+        "en": "Words of the destination. Empty for both directions.",
+        "fr": "Des mots de la destination. Vide pour les deux sens.",
+        "de": "Wörter des Ziels. Leer für beide Richtungen.",
+        "es": "Palabras del destino. Vacío para ambos sentidos."
+      },
+      "placeholder": {
+        "en": "Saint-Sulpice",
+        "fr": "Saint-Sulpice",
+        "de": "Saint-Sulpice",
+        "es": "Saint-Sulpice"
+      },
+      "required": false
+    },
+    {
+      "key": "lines_section",
+      "type": "section",
+      "label": {
+        "en": "Traffic of the lines",
+        "fr": "Trafic des lignes",
+        "de": "Verkehrslage der Linien",
+        "es": "Tráfico de las líneas"
+      },
+      "description": {
+        "en": "The lines whose traffic you follow, bus or metro: a device per line, with its state (normal, minor, major or blocking disruption, metro down) and the alerts of STAR, read every 5 minutes.",
+        "fr": "Les lignes dont vous suivez le trafic, bus ou métro : un appareil par ligne, avec son état (normal, perturbation mineure, majeure ou bloquante, métro en panne) et les alertes du STAR, lus toutes les 5 minutes.",
+        "de": "Die Linien, deren Verkehrslage du verfolgst, Bus oder Metro: ein Gerät pro Linie, mit ihrem Zustand (normal, leichte, erhebliche oder blockierende Störung, Metro gestört) und den Meldungen von STAR, alle 5 Minuten gelesen.",
+        "es": "Las líneas cuyo tráfico sigues, autobús o metro: un dispositivo por línea, con su estado (normal, incidencia leve, importante o bloqueante, metro averiado) y los avisos de STAR, leídos cada 5 minutos."
+      }
+    },
+    {
+      "key": "lines",
+      "type": "string",
+      "label": {
+        "en": "Followed lines",
+        "fr": "Lignes suivies",
+        "de": "Verfolgte Linien",
+        "es": "Líneas seguidas"
+      },
+      "description": {
+        "en": "Up to 6, separated by commas.",
+        "fr": "Jusqu’à 6, séparées par des virgules.",
+        "de": "Bis zu 6, durch Kommas getrennt.",
+        "es": "Hasta 6, separadas por comas."
+      },
+      "placeholder": {
+        "en": "a, b, C1, 11",
+        "fr": "a, b, C1, 11",
+        "de": "a, b, C1, 11",
+        "es": "a, b, C1, 11"
+      },
+      "required": false
+    },
+    {
+      "key": "options_section",
+      "type": "section",
+      "label": {
+        "en": "Options",
+        "fr": "Options",
+        "de": "Optionen",
+        "es": "Opciones"
+      }
+    },
+    {
+      "key": "interval",
+      "type": "select",
+      "label": {
+        "en": "Reading of the stops",
+        "fr": "Lecture des arrêts",
+        "de": "Abfrage der Haltestellen",
+        "es": "Lectura de las paradas"
+      },
+      "description": {
+        "en": "How often the passages of the stops are read. A stop announcing nothing (at night) is read every 10 minutes. With many stops, the interval is stretched to stay within the daily quota of the portal.",
+        "fr": "La fréquence de lecture des passages des arrêts. Un arrêt qui n’annonce rien (la nuit) est lu toutes les 10 minutes. Avec beaucoup d’arrêts, l’intervalle est allongé pour rester dans le quota quotidien du portail.",
+        "de": "Wie oft die Abfahrten der Haltestellen gelesen werden. Eine Haltestelle ohne Ankündigung (nachts) wird alle 10 Minuten gelesen. Bei vielen Haltestellen wird das Intervall verlängert, um im Tageskontingent des Portals zu bleiben.",
+        "es": "Con qué frecuencia se leen los pasos de las paradas. Una parada que no anuncia nada (de noche) se lee cada 10 minutos. Con muchas paradas, el intervalo se alarga para no superar la cuota diaria del portal."
+      },
+      "options": [
+        {
+          "value": "30",
+          "label": {
+            "en": "Every 30 seconds",
+            "fr": "Toutes les 30 secondes",
+            "de": "Alle 30 Sekunden",
+            "es": "Cada 30 segundos"
+          }
+        },
+        {
+          "value": "60",
+          "label": {
+            "en": "Every minute",
+            "fr": "Toutes les minutes",
+            "de": "Jede Minute",
+            "es": "Cada minuto"
+          }
+        },
+        {
+          "value": "120",
+          "label": {
+            "en": "Every 2 minutes",
+            "fr": "Toutes les 2 minutes",
+            "de": "Alle 2 Minuten",
+            "es": "Cada 2 minutos"
+          }
+        },
+        {
+          "value": "300",
+          "label": {
+            "en": "Every 5 minutes",
+            "fr": "Toutes les 5 minutes",
+            "de": "Alle 5 Minuten",
+            "es": "Cada 5 minutos"
+          }
+        }
+      ],
+      "default": "60",
+      "required": false
+    },
+    {
+      "key": "language",
+      "type": "select",
+      "label": {
+        "en": "Language of the texts",
+        "fr": "Langue des textes",
+        "de": "Sprache der Texte",
+        "es": "Idioma de los textos"
+      },
+      "description": {
+        "en": "Device names, scene summaries and outputs. Automatic: the language of your dashboard, once a STAR widget has been displayed. Names of stops and traffic alerts stay in French.",
+        "fr": "Noms des appareils, résumés et sorties des scènes. Automatique : la langue de votre tableau de bord, dès qu’un widget STAR a été affiché. Les noms d’arrêts et les alertes trafic restent en français.",
+        "de": "Gerätenamen, Szenen-Zusammenfassungen und -Ausgaben. Automatisch: die Sprache deines Dashboards, sobald ein STAR-Widget angezeigt wurde. Haltestellennamen und Verkehrsmeldungen bleiben auf Französisch.",
+        "es": "Nombres de los dispositivos, resúmenes y salidas de las escenas. Automático: el idioma de tu panel, en cuanto se haya mostrado un widget de STAR. Los nombres de paradas y los avisos de tráfico siguen en francés."
+      },
+      "options": [
+        {
+          "value": "auto",
+          "label": {
+            "en": "Automatic",
+            "fr": "Automatique",
+            "de": "Automatisch",
+            "es": "Automático"
+          }
+        },
+        {
+          "value": "en",
+          "label": {
+            "en": "English",
+            "fr": "English",
+            "de": "English",
+            "es": "English"
+          }
+        },
+        {
+          "value": "fr",
+          "label": {
+            "en": "Français",
+            "fr": "Français",
+            "de": "Français",
+            "es": "Français"
+          }
+        },
+        {
+          "value": "de",
+          "label": {
+            "en": "Deutsch",
+            "fr": "Deutsch",
+            "de": "Deutsch",
+            "es": "Deutsch"
+          }
+        },
+        {
+          "value": "es",
+          "label": {
+            "en": "Español",
+            "fr": "Español",
+            "de": "Español",
+            "es": "Español"
+          }
+        }
+      ],
+      "default": "auto",
+      "required": false
+    }
+  ],
+  "actions": [
+    {
+      "key": "test_connection",
+      "label": {
+        "en": "Test the connection",
+        "fr": "Tester la connexion",
+        "de": "Verbindung testen",
+        "es": "Probar la conexión"
+      },
+      "description": {
+        "en": "Reads the lines and stops of the network again, finds your stops and lines and reads them now.",
+        "fr": "Relit les lignes et les arrêts du réseau, retrouve vos arrêts et vos lignes et les lit tout de suite.",
+        "de": "Liest die Linien und Haltestellen des Netzes neu, findet deine Haltestellen und Linien und liest sie sofort.",
+        "es": "Vuelve a leer las líneas y paradas de la red, encuentra tus paradas y líneas y las lee ahora."
+      },
+      "timeout_seconds": 60
+    },
+    {
+      "key": "search_stop",
+      "label": {
+        "en": "Find a stop",
+        "fr": "Chercher un arrêt",
+        "de": "Haltestelle suchen",
+        "es": "Buscar una parada"
+      },
+      "description": {
+        "en": "Gives the exact names of the stops holding these words, the id of each side of the street and of each metro platform, and the lines and destinations served there.",
+        "fr": "Donne le nom exact des arrêts contenant ces mots, l’identifiant de chaque côté de la rue et de chaque quai de métro, et les lignes et destinations qui y passent.",
+        "de": "Liefert die genauen Namen der Haltestellen mit diesen Wörtern, die Kennung jeder Straßenseite und jedes Metrobahnsteigs sowie die dort fahrenden Linien und Ziele.",
+        "es": "Da el nombre exacto de las paradas que contienen estas palabras, el identificador de cada lado de la calle y de cada andén de metro, y las líneas y destinos que pasan por allí."
+      },
+      "timeout_seconds": 30,
+      "fields": [
+        {
+          "key": "query",
+          "type": "string",
+          "label": {
+            "en": "Stop name",
+            "fr": "Nom de l’arrêt",
+            "de": "Name der Haltestelle",
+            "es": "Nombre de la parada"
+          },
+          "placeholder": {
+            "en": "Republique",
+            "fr": "Republique",
+            "de": "Republique",
+            "es": "Republique"
+          },
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "add_stop",
+      "label": {
+        "en": "Add a stop",
+        "fr": "Ajouter un arrêt",
+        "de": "Haltestelle hinzufügen",
+        "es": "Añadir una parada"
+      },
+      "description": {
+        "en": "Follows one more stop, beyond the three of the form: up to 20 more. Its device is then offered in the Discover tab.",
+        "fr": "Suit un arrêt de plus, au-delà des trois du formulaire : jusqu’à 20 de plus. Son appareil est ensuite proposé dans l’onglet Découvrir.",
+        "de": "Verfolgt eine weitere Haltestelle über die drei des Formulars hinaus: bis zu 20 weitere. Ihr Gerät wird danach im Tab Entdecken angeboten.",
+        "es": "Sigue una parada más, además de las tres del formulario: hasta 20 más. Su dispositivo se ofrece después en la pestaña Descubrir."
+      },
+      "timeout_seconds": 60,
+      "fields": [
+        {
+          "key": "stop",
+          "type": "string",
+          "label": {
+            "en": "Stop",
+            "fr": "Arrêt",
+            "de": "Haltestelle",
+            "es": "Parada"
+          },
+          "description": {
+            "en": "Its name for every side of the street, or an id for one side (\"Find a stop\").",
+            "fr": "Son nom pour tous les côtés de la rue, ou un identifiant pour un seul côté (« Chercher un arrêt »).",
+            "de": "Ihr Name für alle Straßenseiten oder eine Kennung für eine Seite („Haltestelle suchen“).",
+            "es": "Su nombre para todos los lados de la calle, o un identificador para un solo lado («Buscar una parada»)."
+          },
+          "placeholder": {
+            "en": "1168",
+            "fr": "1168",
+            "de": "1168",
+            "es": "1168"
+          },
+          "required": true
+        },
+        {
+          "key": "line",
+          "type": "string",
+          "label": {
+            "en": "Line",
+            "fr": "Ligne",
+            "de": "Linie",
+            "es": "Línea"
+          },
+          "description": {
+            "en": "Empty for every line.",
+            "fr": "Vide pour toutes les lignes.",
+            "de": "Leer für alle Linien.",
+            "es": "Vacío para todas las líneas."
+          },
+          "placeholder": {
+            "en": "C4",
+            "fr": "C4",
+            "de": "C4",
+            "es": "C4"
+          },
+          "required": false
+        },
+        {
+          "key": "direction",
+          "type": "string",
+          "label": {
+            "en": "Direction",
+            "fr": "Direction",
+            "de": "Richtung",
+            "es": "Dirección"
+          },
+          "description": {
+            "en": "Words of the destination. Empty for both directions.",
+            "fr": "Mots de la destination. Vide pour les deux sens.",
+            "de": "Wörter des Ziels. Leer für beide Richtungen.",
+            "es": "Palabras del destino. Vacío para ambos sentidos."
+          },
+          "placeholder": {
+            "en": "Saint-Sulpice",
+            "fr": "Saint-Sulpice",
+            "de": "Saint-Sulpice",
+            "es": "Saint-Sulpice"
+          },
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "remove_stop",
+      "label": {
+        "en": "Remove a stop",
+        "fr": "Retirer un arrêt",
+        "de": "Haltestelle entfernen",
+        "es": "Quitar una parada"
+      },
+      "description": {
+        "en": "Stops following a stop added with the button. Its device stays in Gladys until you delete it.",
+        "fr": "Arrête de suivre un arrêt ajouté avec le bouton. Son appareil reste dans Gladys jusqu’à ce que vous le supprimiez.",
+        "de": "Beendet das Verfolgen einer mit der Schaltfläche hinzugefügten Haltestelle. Ihr Gerät bleibt in Gladys, bis du es löschst.",
+        "es": "Deja de seguir una parada añadida con el botón. Su dispositivo sigue en Gladys hasta que lo borres."
+      },
+      "timeout_seconds": 30,
+      "fields": [
+        {
+          "key": "stop",
+          "type": "string",
+          "label": {
+            "en": "Stop",
+            "fr": "Arrêt",
+            "de": "Haltestelle",
+            "es": "Parada"
+          },
+          "description": {
+            "en": "Its number in \"List the stops\", or its name.",
+            "fr": "Son numéro dans « Lister les arrêts », ou son nom.",
+            "de": "Ihre Nummer in „Haltestellen auflisten“ oder ihr Name.",
+            "es": "Su número en «Listar las paradas», o su nombre."
+          },
+          "placeholder": {
+            "en": "4",
+            "fr": "4",
+            "de": "4",
+            "es": "4"
+          },
+          "required": true
+        }
+      ]
+    },
+    {
+      "key": "list_stops",
+      "label": {
+        "en": "List the stops",
+        "fr": "Lister les arrêts",
+        "de": "Haltestellen auflisten",
+        "es": "Listar las paradas"
+      },
+      "description": {
+        "en": "Shows every followed stop, numbered: the three of the form, then the ones added with the button.",
+        "fr": "Montre tous les arrêts suivis, numérotés : les trois du formulaire, puis ceux ajoutés avec le bouton.",
+        "de": "Zeigt alle verfolgten Haltestellen nummeriert: die drei des Formulars, dann die mit der Schaltfläche hinzugefügten.",
+        "es": "Muestra todas las paradas seguidas, numeradas: las tres del formulario y luego las añadidas con el botón."
+      },
+      "timeout_seconds": 10
+    },
+    {
+      "key": "diagnostic",
+      "label": {
+        "en": "Diagnostic",
+        "fr": "Diagnostic",
+        "de": "Diagnose",
+        "es": "Diagnóstico"
+      },
+      "description": {
+        "en": "Writes to the Logs tab the stops and lines found, the last passages read, the last errors, the requests made and the quota left, for a report on GitHub or the forum.",
+        "fr": "Écrit dans l’onglet Journaux les arrêts et lignes trouvés, les derniers passages lus, les dernières erreurs, les requêtes faites et le quota restant, pour un signalement sur GitHub ou le forum.",
+        "de": "Schreibt die gefundenen Haltestellen und Linien, die zuletzt gelesenen Abfahrten, die letzten Fehler, die Anfragen und das restliche Kontingent in den Tab Protokolle, für eine Meldung auf GitHub oder im Forum.",
+        "es": "Escribe en la pestaña Registros las paradas y líneas encontradas, los últimos pasos leídos, los últimos errores, las peticiones hechas y la cuota restante, para un informe en GitHub o el foro."
+      },
+      "timeout_seconds": 10
+    }
+  ],
+  "scene_triggers": [
+    {
+      "key": "departure_soon",
+      "label": {
+        "en": "STAR: bus or metro soon",
+        "fr": "STAR : bus ou métro bientôt",
+        "de": "STAR: Bus oder Metro gleich",
+        "es": "STAR: autobús o metro pronto"
+      },
+      "description": {
+        "en": "A passage at a followed stop leaves in N minutes, counted on the real-time time.",
+        "fr": "Un passage à un arrêt suivi part dans N minutes, compté sur l’horaire en temps réel.",
+        "de": "Eine Abfahrt an einer verfolgten Haltestelle fährt in N Minuten, gezählt nach der Echtzeit.",
+        "es": "Un paso en una parada seguida sale dentro de N minutos, contados sobre la hora en tiempo real."
+      },
+      "fields": [
+        {
+          "key": "stop",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Stop",
+            "fr": "Arrêt",
+            "de": "Haltestelle",
+            "es": "Parada"
+          },
+          "description": {
+            "en": "A stop device of the integration. Leave empty for any stop.",
+            "fr": "Un appareil arrêt de l’intégration. Laissez vide pour n’importe quel arrêt.",
+            "de": "Ein Haltestellen-Gerät der Integration. Leer lassen für jede Haltestelle.",
+            "es": "Un dispositivo parada de la integración. Déjalo vacío para cualquier parada."
+          },
+          "required": false
+        },
+        {
+          "key": "minutes",
+          "type": "select",
+          "label": {
+            "en": "Leaves in",
+            "fr": "Part dans",
+            "de": "Fährt in",
+            "es": "Sale dentro de"
+          },
+          "options": [
+            {
+              "value": "2",
+              "label": {
+                "en": "2 min",
+                "fr": "2 min",
+                "de": "2 min",
+                "es": "2 min"
+              }
+            },
+            {
+              "value": "3",
+              "label": {
+                "en": "3 min",
+                "fr": "3 min",
+                "de": "3 min",
+                "es": "3 min"
+              }
+            },
+            {
+              "value": "5",
+              "label": {
+                "en": "5 min",
+                "fr": "5 min",
+                "de": "5 min",
+                "es": "5 min"
+              }
+            },
+            {
+              "value": "10",
+              "label": {
+                "en": "10 min",
+                "fr": "10 min",
+                "de": "10 min",
+                "es": "10 min"
+              }
+            },
+            {
+              "value": "15",
+              "label": {
+                "en": "15 min",
+                "fr": "15 min",
+                "de": "15 min",
+                "es": "15 min"
+              }
+            },
+            {
+              "value": "20",
+              "label": {
+                "en": "20 min",
+                "fr": "20 min",
+                "de": "20 min",
+                "es": "20 min"
+              }
+            }
+          ],
+          "required": true
+        }
+      ],
+      "variables": [
+        {
+          "key": "stop_name",
+          "type": "string",
+          "label": {
+            "en": "Stop",
+            "fr": "Arrêt",
+            "de": "Haltestelle",
+            "es": "Parada"
+          }
+        },
+        {
+          "key": "line",
+          "type": "string",
+          "label": {
+            "en": "Line",
+            "fr": "Ligne",
+            "de": "Linie",
+            "es": "Línea"
+          }
+        },
+        {
+          "key": "destination",
+          "type": "string",
+          "label": {
+            "en": "Destination",
+            "fr": "Destination",
+            "de": "Ziel",
+            "es": "Destino"
+          }
+        },
+        {
+          "key": "time",
+          "type": "string",
+          "label": {
+            "en": "Expected time (HH:MM)",
+            "fr": "Heure prévue (HH:MM)",
+            "de": "Erwartete Zeit (HH:MM)",
+            "es": "Hora prevista (HH:MM)"
+          }
+        },
+        {
+          "key": "reliable",
+          "type": "boolean",
+          "label": {
+            "en": "Real time",
+            "fr": "Temps réel",
+            "de": "Echtzeit",
+            "es": "Tiempo real"
+          },
+          "description": {
+            "en": "False: the bus is not located yet, the time is the timetable.",
+            "fr": "Faux : le bus n’est pas encore localisé, l’heure est l’horaire théorique.",
+            "de": "Falsch: Der Bus ist noch nicht geortet, die Zeit ist die Fahrplanzeit.",
+            "es": "Falso: el autobús aún no está localizado, la hora es la teórica."
+          }
+        },
+        {
+          "key": "delay_minutes",
+          "type": "number",
+          "label": {
+            "en": "Delay (min)",
+            "fr": "Retard (min)",
+            "de": "Verspätung (Min.)",
+            "es": "Retraso (min)"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary",
+            "fr": "Résumé",
+            "de": "Zusammenfassung",
+            "es": "Resumen"
+          },
+          "description": {
+            "en": "A sentence ready to put in a message.",
+            "fr": "Une phrase prête à mettre dans un message.",
+            "de": "Ein Satz, bereit für eine Nachricht.",
+            "es": "Una frase lista para poner en un mensaje."
+          }
+        }
+      ]
+    },
+    {
+      "key": "line_disrupted",
+      "label": {
+        "en": "STAR: line disrupted",
+        "fr": "STAR : ligne perturbée",
+        "de": "STAR: Linie gestört",
+        "es": "STAR: línea con incidencias"
+      },
+      "description": {
+        "en": "A followed line gets a major or blocking alert under way, or its metro goes down.",
+        "fr": "Une ligne suivie reçoit une alerte majeure ou bloquante en cours, ou son métro tombe en panne.",
+        "de": "Eine verfolgte Linie erhält eine laufende erhebliche oder blockierende Meldung, oder ihre Metro fällt aus.",
+        "es": "Una línea seguida recibe un aviso importante o bloqueante en curso, o su metro se avería."
+      },
+      "fields": [
+        {
+          "key": "line",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Line",
+            "fr": "Ligne",
+            "de": "Linie",
+            "es": "Línea"
+          },
+          "description": {
+            "en": "A line device of the integration. Leave empty for any line.",
+            "fr": "Un appareil ligne de l’intégration. Laissez vide pour n’importe quelle ligne.",
+            "de": "Ein Linien-Gerät der Integration. Leer lassen für jede Linie.",
+            "es": "Un dispositivo línea de la integración. Déjalo vacío para cualquier línea."
+          },
+          "required": false
+        },
+        {
+          "key": "severity",
+          "type": "multi_select",
+          "label": {
+            "en": "Severity",
+            "fr": "Gravité",
+            "de": "Schwere",
+            "es": "Gravedad"
+          },
+          "description": {
+            "en": "Leave empty for every one.",
+            "fr": "Laissez vide pour toutes.",
+            "de": "Leer lassen für alle.",
+            "es": "Déjalo vacío para todas."
+          },
+          "options": [
+            {
+              "value": "major",
+              "label": {
+                "en": "Major disruption",
+                "fr": "Perturbation majeure",
+                "de": "Erhebliche Störung",
+                "es": "Incidencia importante"
+              }
+            },
+            {
+              "value": "blocking",
+              "label": {
+                "en": "Blocking disruption",
+                "fr": "Perturbation bloquante",
+                "de": "Blockierende Störung",
+                "es": "Incidencia bloqueante"
+              }
+            },
+            {
+              "value": "stopped",
+              "label": {
+                "en": "Metro down",
+                "fr": "Métro en panne",
+                "de": "Metro gestört",
+                "es": "Metro averiado"
+              }
+            }
+          ],
+          "required": false
+        }
+      ],
+      "variables": [
+        {
+          "key": "line_name",
+          "type": "string",
+          "label": {
+            "en": "Line",
+            "fr": "Ligne",
+            "de": "Linie",
+            "es": "Línea"
+          }
+        },
+        {
+          "key": "title",
+          "type": "string",
+          "label": {
+            "en": "Title of the alert",
+            "fr": "Titre de l’alerte",
+            "de": "Titel der Meldung",
+            "es": "Título del aviso"
+          }
+        },
+        {
+          "key": "message",
+          "type": "string",
+          "label": {
+            "en": "Alert text",
+            "fr": "Texte de l’alerte",
+            "de": "Text der Meldung",
+            "es": "Texto del aviso"
+          }
+        },
+        {
+          "key": "url",
+          "type": "string",
+          "label": {
+            "en": "Link on star.fr",
+            "fr": "Lien sur star.fr",
+            "de": "Link auf star.fr",
+            "es": "Enlace en star.fr"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary",
+            "fr": "Résumé",
+            "de": "Zusammenfassung",
+            "es": "Resumen"
+          },
+          "description": {
+            "en": "A sentence ready to put in a message.",
+            "fr": "Une phrase prête à mettre dans un message.",
+            "de": "Ein Satz, bereit für eine Nachricht.",
+            "es": "Una frase lista para poner en un mensaje."
+          }
+        }
+      ]
+    },
+    {
+      "key": "line_restored",
+      "label": {
+        "en": "STAR: line back to normal",
+        "fr": "STAR : ligne revenue à la normale",
+        "de": "STAR: Linie wieder normal",
+        "es": "STAR: línea vuelve a la normalidad"
+      },
+      "description": {
+        "en": "A followed line that was disrupted runs normally again (or with a minor alert only).",
+        "fr": "Une ligne suivie qui était perturbée circule de nouveau normalement (ou avec une alerte mineure seulement).",
+        "de": "Eine verfolgte, gestörte Linie fährt wieder normal (oder nur mit einer leichten Meldung).",
+        "es": "Una línea seguida que tenía incidencias vuelve a circular con normalidad (o solo con un aviso leve)."
+      },
+      "fields": [
+        {
+          "key": "line",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Line",
+            "fr": "Ligne",
+            "de": "Linie",
+            "es": "Línea"
+          },
+          "description": {
+            "en": "A line device of the integration. Leave empty for any line.",
+            "fr": "Un appareil ligne de l’intégration. Laissez vide pour n’importe quelle ligne.",
+            "de": "Ein Linien-Gerät der Integration. Leer lassen für jede Linie.",
+            "es": "Un dispositivo línea de la integración. Déjalo vacío para cualquier línea."
+          },
+          "required": false
+        }
+      ],
+      "variables": [
+        {
+          "key": "line_name",
+          "type": "string",
+          "label": {
+            "en": "Line",
+            "fr": "Ligne",
+            "de": "Linie",
+            "es": "Línea"
+          }
+        },
+        {
+          "key": "state",
+          "type": "string",
+          "label": {
+            "en": "New state",
+            "fr": "Nouvel état",
+            "de": "Neuer Zustand",
+            "es": "Nuevo estado"
+          },
+          "description": {
+            "en": "normal or minor.",
+            "fr": "normal ou minor (mineure).",
+            "de": "normal oder minor (leicht).",
+            "es": "normal o minor (leve)."
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary",
+            "fr": "Résumé",
+            "de": "Zusammenfassung",
+            "es": "Resumen"
+          },
+          "description": {
+            "en": "A sentence ready to put in a message.",
+            "fr": "Une phrase prête à mettre dans un message.",
+            "de": "Ein Satz, bereit für eine Nachricht.",
+            "es": "Una frase lista para poner en un mensaje."
+          }
+        }
+      ]
+    },
+    {
+      "key": "traffic_message",
+      "label": {
+        "en": "STAR: new traffic alert",
+        "fr": "STAR : nouvelle alerte trafic",
+        "de": "STAR: neue Verkehrsmeldung",
+        "es": "STAR: nuevo aviso de tráfico"
+      },
+      "description": {
+        "en": "STAR publishes a new alert about a followed line: planned or under way.",
+        "fr": "Le STAR publie une nouvelle alerte sur une ligne suivie : prévue ou en cours.",
+        "de": "STAR veröffentlicht eine neue Meldung zu einer verfolgten Linie: geplant oder laufend.",
+        "es": "STAR publica un nuevo aviso sobre una línea seguida: previsto o en curso."
+      },
+      "fields": [
+        {
+          "key": "line",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Line",
+            "fr": "Ligne",
+            "de": "Linie",
+            "es": "Línea"
+          },
+          "description": {
+            "en": "A line device of the integration. Leave empty for any line.",
+            "fr": "Un appareil ligne de l’intégration. Laissez vide pour n’importe quelle ligne.",
+            "de": "Ein Linien-Gerät der Integration. Leer lassen für jede Linie.",
+            "es": "Un dispositivo línea de la integración. Déjalo vacío para cualquier línea."
+          },
+          "required": false
+        },
+        {
+          "key": "kind",
+          "type": "multi_select",
+          "label": {
+            "en": "Kind",
+            "fr": "Type",
+            "de": "Art",
+            "es": "Tipo"
+          },
+          "description": {
+            "en": "Leave empty for every kind.",
+            "fr": "Laissez vide pour tous les types.",
+            "de": "Leer lassen für alle Arten.",
+            "es": "Déjalo vacío para todos los tipos."
+          },
+          "options": [
+            {
+              "value": "planned",
+              "label": {
+                "en": "Disruption planned",
+                "fr": "Perturbation prévue",
+                "de": "Störung geplant",
+                "es": "Incidencia prevista"
+              }
+            },
+            {
+              "value": "minor",
+              "label": {
+                "en": "Minor disruption",
+                "fr": "Perturbation mineure",
+                "de": "Leichte Störung",
+                "es": "Incidencia leve"
+              }
+            },
+            {
+              "value": "major",
+              "label": {
+                "en": "Major disruption",
+                "fr": "Perturbation majeure",
+                "de": "Erhebliche Störung",
+                "es": "Incidencia importante"
+              }
+            },
+            {
+              "value": "blocking",
+              "label": {
+                "en": "Blocking disruption",
+                "fr": "Perturbation bloquante",
+                "de": "Blockierende Störung",
+                "es": "Incidencia bloqueante"
+              }
+            }
+          ],
+          "required": false
+        }
+      ],
+      "variables": [
+        {
+          "key": "line_name",
+          "type": "string",
+          "label": {
+            "en": "Line",
+            "fr": "Ligne",
+            "de": "Linie",
+            "es": "Línea"
+          }
+        },
+        {
+          "key": "title",
+          "type": "string",
+          "label": {
+            "en": "Title of the alert",
+            "fr": "Titre de l’alerte",
+            "de": "Titel der Meldung",
+            "es": "Título del aviso"
+          }
+        },
+        {
+          "key": "message",
+          "type": "string",
+          "label": {
+            "en": "Alert text",
+            "fr": "Texte de l’alerte",
+            "de": "Text der Meldung",
+            "es": "Texto del aviso"
+          }
+        },
+        {
+          "key": "url",
+          "type": "string",
+          "label": {
+            "en": "Link on star.fr",
+            "fr": "Lien sur star.fr",
+            "de": "Link auf star.fr",
+            "es": "Enlace en star.fr"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary",
+            "fr": "Résumé",
+            "de": "Zusammenfassung",
+            "es": "Resumen"
+          },
+          "description": {
+            "en": "A sentence ready to put in a message.",
+            "fr": "Une phrase prête à mettre dans un message.",
+            "de": "Ein Satz, bereit für eine Nachricht.",
+            "es": "Una frase lista para poner en un mensaje."
+          }
+        }
+      ]
+    },
+    {
+      "key": "equipment_out_of_service",
+      "label": {
+        "en": "STAR: metro lift out of service",
+        "fr": "STAR : ascenseur du métro en panne",
+        "de": "STAR: Metro-Aufzug außer Betrieb",
+        "es": "STAR: ascensor del metro averiado"
+      },
+      "description": {
+        "en": "A lift or an escalator of a metro station (or the lift of its park-and-ride) goes out of service.",
+        "fr": "Un ascenseur ou un escalier mécanique d’une station de métro (ou l’ascenseur de son parc relais) tombe en panne.",
+        "de": "Ein Aufzug oder eine Rolltreppe einer Metrostation (oder der Aufzug ihres P+R-Parkplatzes) fällt aus.",
+        "es": "Un ascensor o una escalera mecánica de una estación de metro (o el ascensor de su aparcamiento disuasorio) se avería."
+      },
+      "fields": [
+        {
+          "key": "station",
+          "type": "select",
+          "label": {
+            "en": "Metro station",
+            "fr": "Station de métro",
+            "de": "Metrostation",
+            "es": "Estación de metro"
+          },
+          "description": {
+            "en": "Leave empty for any station.",
+            "fr": "Laissez vide pour n’importe quelle station.",
+            "de": "Leer lassen für jede Station.",
+            "es": "Déjalo vacío para cualquier estación."
+          },
+          "options": [
+            {
+              "value": "15004",
+              "label": {
+                "en": "Anatole France",
+                "fr": "Anatole France",
+                "de": "Anatole France",
+                "es": "Anatole France"
+              }
+            },
+            {
+              "value": "15051",
+              "label": {
+                "en": "Atalante",
+                "fr": "Atalante",
+                "de": "Atalante",
+                "es": "Atalante"
+              }
+            },
+            {
+              "value": "15052",
+              "label": {
+                "en": "Beaulieu - Université",
+                "fr": "Beaulieu - Université",
+                "de": "Beaulieu - Université",
+                "es": "Beaulieu - Université"
+              }
+            },
+            {
+              "value": "15050",
+              "label": {
+                "en": "Cesson - Viasilva",
+                "fr": "Cesson - Viasilva",
+                "de": "Cesson - Viasilva",
+                "es": "Cesson - Viasilva"
+              }
+            },
+            {
+              "value": "15007",
+              "label": {
+                "en": "Charles de Gaulle",
+                "fr": "Charles de Gaulle",
+                "de": "Charles de Gaulle",
+                "es": "Charles de Gaulle"
+              }
+            },
+            {
+              "value": "15010",
+              "label": {
+                "en": "Clemenceau",
+                "fr": "Clemenceau",
+                "de": "Clemenceau",
+                "es": "Clemenceau"
+              }
+            },
+            {
+              "value": "15062",
+              "label": {
+                "en": "Cleunay",
+                "fr": "Cleunay",
+                "de": "Cleunay",
+                "es": "Cleunay"
+              }
+            },
+            {
+              "value": "15060",
+              "label": {
+                "en": "Colombier",
+                "fr": "Colombier",
+                "de": "Colombier",
+                "es": "Colombier"
+              }
+            },
+            {
+              "value": "15008",
+              "label": {
+                "en": "Gares",
+                "fr": "Gares",
+                "de": "Gares",
+                "es": "Gares"
+              }
+            },
+            {
+              "value": "15055",
+              "label": {
+                "en": "Gros-Chêne",
+                "fr": "Gros-Chêne",
+                "de": "Gros-Chêne",
+                "es": "Gros-Chêne"
+              }
+            },
+            {
+              "value": "15011",
+              "label": {
+                "en": "Henri Fréville",
+                "fr": "Henri Fréville",
+                "de": "Henri Fréville",
+                "es": "Henri Fréville"
+              }
+            },
+            {
+              "value": "15012",
+              "label": {
+                "en": "Italie",
+                "fr": "Italie",
+                "de": "Italie",
+                "es": "Italie"
+              }
+            },
+            {
+              "value": "15001",
+              "label": {
+                "en": "J.F. Kennedy",
+                "fr": "J.F. Kennedy",
+                "de": "J.F. Kennedy",
+                "es": "J.F. Kennedy"
+              }
+            },
+            {
+              "value": "15009",
+              "label": {
+                "en": "Jacques Cartier",
+                "fr": "Jacques Cartier",
+                "de": "Jacques Cartier",
+                "es": "Jacques Cartier"
+              }
+            },
+            {
+              "value": "15053",
+              "label": {
+                "en": "Joliot-Curie - Chateaubriand",
+                "fr": "Joliot-Curie - Chateaubriand",
+                "de": "Joliot-Curie - Chateaubriand",
+                "es": "Joliot-Curie - Chateaubriand"
+              }
+            },
+            {
+              "value": "15056",
+              "label": {
+                "en": "Jules Ferry",
+                "fr": "Jules Ferry",
+                "de": "Jules Ferry",
+                "es": "Jules Ferry"
+              }
+            },
+            {
+              "value": "15063",
+              "label": {
+                "en": "La Courrouze",
+                "fr": "La Courrouze",
+                "de": "La Courrouze",
+                "es": "La Courrouze"
+              }
+            },
+            {
+              "value": "15015",
+              "label": {
+                "en": "La Poterie",
+                "fr": "La Poterie",
+                "de": "La Poterie",
+                "es": "La Poterie"
+              }
+            },
+            {
+              "value": "15014",
+              "label": {
+                "en": "Le Blosne",
+                "fr": "Le Blosne",
+                "de": "Le Blosne",
+                "es": "Le Blosne"
+              }
+            },
+            {
+              "value": "15054",
+              "label": {
+                "en": "Les Gayeulles",
+                "fr": "Les Gayeulles",
+                "de": "Les Gayeulles",
+                "es": "Les Gayeulles"
+              }
+            },
+            {
+              "value": "15061",
+              "label": {
+                "en": "Mabilais",
+                "fr": "Mabilais",
+                "de": "Mabilais",
+                "es": "Mabilais"
+              }
+            },
+            {
+              "value": "15003",
+              "label": {
+                "en": "Pontchaillou",
+                "fr": "Pontchaillou",
+                "de": "Pontchaillou",
+                "es": "Pontchaillou"
+              }
+            },
+            {
+              "value": "15006",
+              "label": {
+                "en": "République",
+                "fr": "République",
+                "de": "République",
+                "es": "République"
+              }
+            },
+            {
+              "value": "15058",
+              "label": {
+                "en": "Saint-Germain",
+                "fr": "Saint-Germain",
+                "de": "Saint-Germain",
+                "es": "Saint-Germain"
+              }
+            },
+            {
+              "value": "15064",
+              "label": {
+                "en": "Saint-Jacques - Gaîté",
+                "fr": "Saint-Jacques - Gaîté",
+                "de": "Saint-Jacques - Gaîté",
+                "es": "Saint-Jacques - Gaîté"
+              }
+            },
+            {
+              "value": "15005",
+              "label": {
+                "en": "Sainte-Anne",
+                "fr": "Sainte-Anne",
+                "de": "Sainte-Anne",
+                "es": "Sainte-Anne"
+              }
+            },
+            {
+              "value": "15013",
+              "label": {
+                "en": "Triangle",
+                "fr": "Triangle",
+                "de": "Triangle",
+                "es": "Triangle"
+              }
+            },
+            {
+              "value": "15002",
+              "label": {
+                "en": "Villejean-Université",
+                "fr": "Villejean-Université",
+                "de": "Villejean-Université",
+                "es": "Villejean-Université"
+              }
+            }
+          ],
+          "required": false
+        },
+        {
+          "key": "kind",
+          "type": "multi_select",
+          "label": {
+            "en": "Kind",
+            "fr": "Type",
+            "de": "Art",
+            "es": "Tipo"
+          },
+          "description": {
+            "en": "Leave empty for every kind.",
+            "fr": "Laissez vide pour tous les types.",
+            "de": "Leer lassen für alle Arten.",
+            "es": "Déjalo vacío para todos los tipos."
+          },
+          "options": [
+            {
+              "value": "elevator",
+              "label": {
+                "en": "Lift",
+                "fr": "Ascenseur",
+                "de": "Aufzug",
+                "es": "Ascensor"
+              }
+            },
+            {
+              "value": "escalator",
+              "label": {
+                "en": "Escalator",
+                "fr": "Escalier mécanique",
+                "de": "Rolltreppe",
+                "es": "Escalera mecánica"
+              }
+            },
+            {
+              "value": "parking_elevator",
+              "label": {
+                "en": "Park-and-ride lift",
+                "fr": "Ascenseur de parc relais",
+                "de": "Aufzug des P+R-Parkplatzes",
+                "es": "Ascensor del aparcamiento disuasorio"
+              }
+            }
+          ],
+          "required": false
+        }
+      ],
+      "variables": [
+        {
+          "key": "station_name",
+          "type": "string",
+          "label": {
+            "en": "Station",
+            "fr": "Station",
+            "de": "Station",
+            "es": "Estación"
+          }
+        },
+        {
+          "key": "equipment_name",
+          "type": "string",
+          "label": {
+            "en": "Equipment (as written by STAR)",
+            "fr": "Équipement (tel qu’écrit par le STAR)",
+            "de": "Anlage (wie von STAR geschrieben)",
+            "es": "Equipo (tal como lo escribe STAR)"
+          }
+        },
+        {
+          "key": "kind_label",
+          "type": "string",
+          "label": {
+            "en": "Kind",
+            "fr": "Type",
+            "de": "Art",
+            "es": "Tipo"
+          }
+        },
+        {
+          "key": "line_name",
+          "type": "string",
+          "label": {
+            "en": "Line",
+            "fr": "Ligne",
+            "de": "Linie",
+            "es": "Línea"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary",
+            "fr": "Résumé",
+            "de": "Zusammenfassung",
+            "es": "Resumen"
+          },
+          "description": {
+            "en": "A sentence ready to put in a message.",
+            "fr": "Une phrase prête à mettre dans un message.",
+            "de": "Ein Satz, bereit für eine Nachricht.",
+            "es": "Una frase lista para poner en un mensaje."
+          }
+        }
+      ]
+    },
+    {
+      "key": "equipment_back_in_service",
+      "label": {
+        "en": "STAR: metro lift back in service",
+        "fr": "STAR : ascenseur du métro réparé",
+        "de": "STAR: Metro-Aufzug wieder in Betrieb",
+        "es": "STAR: ascensor del metro reparado"
+      },
+      "description": {
+        "en": "A lift or an escalator of a metro station that was out of service works again.",
+        "fr": "Un ascenseur ou un escalier mécanique d’une station de métro qui était en panne fonctionne de nouveau.",
+        "de": "Ein ausgefallener Aufzug oder eine ausgefallene Rolltreppe einer Metrostation funktioniert wieder.",
+        "es": "Un ascensor o una escalera mecánica de una estación de metro que estaba averiado vuelve a funcionar."
+      },
+      "fields": [
+        {
+          "key": "station",
+          "type": "select",
+          "label": {
+            "en": "Metro station",
+            "fr": "Station de métro",
+            "de": "Metrostation",
+            "es": "Estación de metro"
+          },
+          "description": {
+            "en": "Leave empty for any station.",
+            "fr": "Laissez vide pour n’importe quelle station.",
+            "de": "Leer lassen für jede Station.",
+            "es": "Déjalo vacío para cualquier estación."
+          },
+          "options": [
+            {
+              "value": "15004",
+              "label": {
+                "en": "Anatole France",
+                "fr": "Anatole France",
+                "de": "Anatole France",
+                "es": "Anatole France"
+              }
+            },
+            {
+              "value": "15051",
+              "label": {
+                "en": "Atalante",
+                "fr": "Atalante",
+                "de": "Atalante",
+                "es": "Atalante"
+              }
+            },
+            {
+              "value": "15052",
+              "label": {
+                "en": "Beaulieu - Université",
+                "fr": "Beaulieu - Université",
+                "de": "Beaulieu - Université",
+                "es": "Beaulieu - Université"
+              }
+            },
+            {
+              "value": "15050",
+              "label": {
+                "en": "Cesson - Viasilva",
+                "fr": "Cesson - Viasilva",
+                "de": "Cesson - Viasilva",
+                "es": "Cesson - Viasilva"
+              }
+            },
+            {
+              "value": "15007",
+              "label": {
+                "en": "Charles de Gaulle",
+                "fr": "Charles de Gaulle",
+                "de": "Charles de Gaulle",
+                "es": "Charles de Gaulle"
+              }
+            },
+            {
+              "value": "15010",
+              "label": {
+                "en": "Clemenceau",
+                "fr": "Clemenceau",
+                "de": "Clemenceau",
+                "es": "Clemenceau"
+              }
+            },
+            {
+              "value": "15062",
+              "label": {
+                "en": "Cleunay",
+                "fr": "Cleunay",
+                "de": "Cleunay",
+                "es": "Cleunay"
+              }
+            },
+            {
+              "value": "15060",
+              "label": {
+                "en": "Colombier",
+                "fr": "Colombier",
+                "de": "Colombier",
+                "es": "Colombier"
+              }
+            },
+            {
+              "value": "15008",
+              "label": {
+                "en": "Gares",
+                "fr": "Gares",
+                "de": "Gares",
+                "es": "Gares"
+              }
+            },
+            {
+              "value": "15055",
+              "label": {
+                "en": "Gros-Chêne",
+                "fr": "Gros-Chêne",
+                "de": "Gros-Chêne",
+                "es": "Gros-Chêne"
+              }
+            },
+            {
+              "value": "15011",
+              "label": {
+                "en": "Henri Fréville",
+                "fr": "Henri Fréville",
+                "de": "Henri Fréville",
+                "es": "Henri Fréville"
+              }
+            },
+            {
+              "value": "15012",
+              "label": {
+                "en": "Italie",
+                "fr": "Italie",
+                "de": "Italie",
+                "es": "Italie"
+              }
+            },
+            {
+              "value": "15001",
+              "label": {
+                "en": "J.F. Kennedy",
+                "fr": "J.F. Kennedy",
+                "de": "J.F. Kennedy",
+                "es": "J.F. Kennedy"
+              }
+            },
+            {
+              "value": "15009",
+              "label": {
+                "en": "Jacques Cartier",
+                "fr": "Jacques Cartier",
+                "de": "Jacques Cartier",
+                "es": "Jacques Cartier"
+              }
+            },
+            {
+              "value": "15053",
+              "label": {
+                "en": "Joliot-Curie - Chateaubriand",
+                "fr": "Joliot-Curie - Chateaubriand",
+                "de": "Joliot-Curie - Chateaubriand",
+                "es": "Joliot-Curie - Chateaubriand"
+              }
+            },
+            {
+              "value": "15056",
+              "label": {
+                "en": "Jules Ferry",
+                "fr": "Jules Ferry",
+                "de": "Jules Ferry",
+                "es": "Jules Ferry"
+              }
+            },
+            {
+              "value": "15063",
+              "label": {
+                "en": "La Courrouze",
+                "fr": "La Courrouze",
+                "de": "La Courrouze",
+                "es": "La Courrouze"
+              }
+            },
+            {
+              "value": "15015",
+              "label": {
+                "en": "La Poterie",
+                "fr": "La Poterie",
+                "de": "La Poterie",
+                "es": "La Poterie"
+              }
+            },
+            {
+              "value": "15014",
+              "label": {
+                "en": "Le Blosne",
+                "fr": "Le Blosne",
+                "de": "Le Blosne",
+                "es": "Le Blosne"
+              }
+            },
+            {
+              "value": "15054",
+              "label": {
+                "en": "Les Gayeulles",
+                "fr": "Les Gayeulles",
+                "de": "Les Gayeulles",
+                "es": "Les Gayeulles"
+              }
+            },
+            {
+              "value": "15061",
+              "label": {
+                "en": "Mabilais",
+                "fr": "Mabilais",
+                "de": "Mabilais",
+                "es": "Mabilais"
+              }
+            },
+            {
+              "value": "15003",
+              "label": {
+                "en": "Pontchaillou",
+                "fr": "Pontchaillou",
+                "de": "Pontchaillou",
+                "es": "Pontchaillou"
+              }
+            },
+            {
+              "value": "15006",
+              "label": {
+                "en": "République",
+                "fr": "République",
+                "de": "République",
+                "es": "République"
+              }
+            },
+            {
+              "value": "15058",
+              "label": {
+                "en": "Saint-Germain",
+                "fr": "Saint-Germain",
+                "de": "Saint-Germain",
+                "es": "Saint-Germain"
+              }
+            },
+            {
+              "value": "15064",
+              "label": {
+                "en": "Saint-Jacques - Gaîté",
+                "fr": "Saint-Jacques - Gaîté",
+                "de": "Saint-Jacques - Gaîté",
+                "es": "Saint-Jacques - Gaîté"
+              }
+            },
+            {
+              "value": "15005",
+              "label": {
+                "en": "Sainte-Anne",
+                "fr": "Sainte-Anne",
+                "de": "Sainte-Anne",
+                "es": "Sainte-Anne"
+              }
+            },
+            {
+              "value": "15013",
+              "label": {
+                "en": "Triangle",
+                "fr": "Triangle",
+                "de": "Triangle",
+                "es": "Triangle"
+              }
+            },
+            {
+              "value": "15002",
+              "label": {
+                "en": "Villejean-Université",
+                "fr": "Villejean-Université",
+                "de": "Villejean-Université",
+                "es": "Villejean-Université"
+              }
+            }
+          ],
+          "required": false
+        },
+        {
+          "key": "kind",
+          "type": "multi_select",
+          "label": {
+            "en": "Kind",
+            "fr": "Type",
+            "de": "Art",
+            "es": "Tipo"
+          },
+          "description": {
+            "en": "Leave empty for every kind.",
+            "fr": "Laissez vide pour tous les types.",
+            "de": "Leer lassen für alle Arten.",
+            "es": "Déjalo vacío para todos los tipos."
+          },
+          "options": [
+            {
+              "value": "elevator",
+              "label": {
+                "en": "Lift",
+                "fr": "Ascenseur",
+                "de": "Aufzug",
+                "es": "Ascensor"
+              }
+            },
+            {
+              "value": "escalator",
+              "label": {
+                "en": "Escalator",
+                "fr": "Escalier mécanique",
+                "de": "Rolltreppe",
+                "es": "Escalera mecánica"
+              }
+            },
+            {
+              "value": "parking_elevator",
+              "label": {
+                "en": "Park-and-ride lift",
+                "fr": "Ascenseur de parc relais",
+                "de": "Aufzug des P+R-Parkplatzes",
+                "es": "Ascensor del aparcamiento disuasorio"
+              }
+            }
+          ],
+          "required": false
+        }
+      ],
+      "variables": [
+        {
+          "key": "station_name",
+          "type": "string",
+          "label": {
+            "en": "Station",
+            "fr": "Station",
+            "de": "Station",
+            "es": "Estación"
+          }
+        },
+        {
+          "key": "equipment_name",
+          "type": "string",
+          "label": {
+            "en": "Equipment (as written by STAR)",
+            "fr": "Équipement (tel qu’écrit par le STAR)",
+            "de": "Anlage (wie von STAR geschrieben)",
+            "es": "Equipo (tal como lo escribe STAR)"
+          }
+        },
+        {
+          "key": "kind_label",
+          "type": "string",
+          "label": {
+            "en": "Kind",
+            "fr": "Type",
+            "de": "Art",
+            "es": "Tipo"
+          }
+        },
+        {
+          "key": "line_name",
+          "type": "string",
+          "label": {
+            "en": "Line",
+            "fr": "Ligne",
+            "de": "Linie",
+            "es": "Línea"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary",
+            "fr": "Résumé",
+            "de": "Zusammenfassung",
+            "es": "Resumen"
+          },
+          "description": {
+            "en": "A sentence ready to put in a message.",
+            "fr": "Une phrase prête à mettre dans un message.",
+            "de": "Ein Satz, bereit für eine Nachricht.",
+            "es": "Una frase lista para poner en un mensaje."
+          }
+        }
+      ]
+    }
+  ],
+  "scene_actions": [
+    {
+      "key": "get_next_departures",
+      "label": {
+        "en": "STAR: next passages",
+        "fr": "STAR : prochains passages",
+        "de": "STAR: nächste Abfahrten",
+        "es": "STAR: próximos pasos"
+      },
+      "description": {
+        "en": "The next two passages of a stop and a sentence for a message.",
+        "fr": "Les deux prochains passages d’un arrêt et une phrase pour un message.",
+        "de": "Die nächsten zwei Abfahrten einer Haltestelle und ein Satz für eine Nachricht.",
+        "es": "Los dos próximos pasos de una parada y una frase para un mensaje."
+      },
+      "timeout_seconds": 30,
+      "fields": [
+        {
+          "key": "stop",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Stop",
+            "fr": "Arrêt",
+            "de": "Haltestelle",
+            "es": "Parada"
+          },
+          "description": {
+            "en": "A stop device of the integration. Leave empty for the first stop.",
+            "fr": "Un appareil arrêt de l’intégration. Laissez vide pour le premier arrêt.",
+            "de": "Ein Haltestellen-Gerät der Integration. Leer lassen für die erste Haltestelle.",
+            "es": "Un dispositivo parada de la integración. Déjalo vacío para la primera parada."
+          },
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "key": "stop_name",
+          "type": "string",
+          "label": {
+            "en": "Stop",
+            "fr": "Arrêt",
+            "de": "Haltestelle",
+            "es": "Parada"
+          }
+        },
+        {
+          "key": "found",
+          "type": "boolean",
+          "label": {
+            "en": "Passage found",
+            "fr": "Passage trouvé",
+            "de": "Abfahrt gefunden",
+            "es": "Paso encontrado"
+          }
+        },
+        {
+          "key": "line",
+          "type": "string",
+          "label": {
+            "en": "Line",
+            "fr": "Ligne",
+            "de": "Linie",
+            "es": "Línea"
+          }
+        },
+        {
+          "key": "destination",
+          "type": "string",
+          "label": {
+            "en": "Destination",
+            "fr": "Destination",
+            "de": "Ziel",
+            "es": "Destino"
+          }
+        },
+        {
+          "key": "minutes",
+          "type": "number",
+          "label": {
+            "en": "Wait (min, -1 if none)",
+            "fr": "Attente (min, -1 si aucun)",
+            "de": "Wartezeit (Min., -1 wenn keine)",
+            "es": "Espera (min, -1 si no hay)"
+          }
+        },
+        {
+          "key": "time",
+          "type": "string",
+          "label": {
+            "en": "Expected time (HH:MM)",
+            "fr": "Heure estimée (HH:MM)",
+            "de": "Erwartete Zeit (HH:MM)",
+            "es": "Hora estimada (HH:MM)"
+          }
+        },
+        {
+          "key": "reliable",
+          "type": "boolean",
+          "label": {
+            "en": "Real time",
+            "fr": "Temps réel",
+            "de": "Echtzeit",
+            "es": "Tiempo real"
+          }
+        },
+        {
+          "key": "delay_minutes",
+          "type": "number",
+          "label": {
+            "en": "Delay (min)",
+            "fr": "Retard (min)",
+            "de": "Verspätung (Min.)",
+            "es": "Retraso (min)"
+          }
+        },
+        {
+          "key": "following_minutes",
+          "type": "number",
+          "label": {
+            "en": "Wait for the following one (min)",
+            "fr": "Attente du suivant (min)",
+            "de": "Wartezeit der folgenden (Min.)",
+            "es": "Espera del siguiente (min)"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary",
+            "fr": "Résumé",
+            "de": "Zusammenfassung",
+            "es": "Resumen"
+          },
+          "description": {
+            "en": "A sentence ready to put in a message.",
+            "fr": "Une phrase prête à mettre dans un message.",
+            "de": "Ein Satz, der direkt in eine Nachricht passt.",
+            "es": "Una frase lista para poner en un mensaje."
+          }
+        }
+      ]
+    },
+    {
+      "key": "get_line_traffic",
+      "label": {
+        "en": "STAR: traffic of a line",
+        "fr": "STAR : trafic d’une ligne",
+        "de": "STAR: Verkehrslage einer Linie",
+        "es": "STAR: tráfico de una línea"
+      },
+      "description": {
+        "en": "The state of a line, its first alert and a sentence for a message.",
+        "fr": "L’état d’une ligne, sa première alerte et une phrase pour un message.",
+        "de": "Der Zustand einer Linie, ihre erste Meldung und ein Satz für eine Nachricht.",
+        "es": "El estado de una línea, su primer aviso y una frase para un mensaje."
+      },
+      "timeout_seconds": 30,
+      "fields": [
+        {
+          "key": "line",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Line",
+            "fr": "Ligne",
+            "de": "Linie",
+            "es": "Línea"
+          },
+          "description": {
+            "en": "A line device of the integration. Leave empty for the first line.",
+            "fr": "Un appareil ligne de l’intégration. Laissez vide pour la première ligne.",
+            "de": "Ein Linien-Gerät der Integration. Leer lassen für die erste Linie.",
+            "es": "Un dispositivo línea de la integración. Déjalo vacío para la primera línea."
+          },
+          "required": false
+        }
+      ],
+      "outputs": [
+        {
+          "key": "line_name",
+          "type": "string",
+          "label": {
+            "en": "Line",
+            "fr": "Ligne",
+            "de": "Linie",
+            "es": "Línea"
+          }
+        },
+        {
+          "key": "state",
+          "type": "string",
+          "label": {
+            "en": "State (code)",
+            "fr": "État (code)",
+            "de": "Zustand (Code)",
+            "es": "Estado (código)"
+          },
+          "description": {
+            "en": "normal, minor, major, blocking, stopped or unknown.",
+            "fr": "normal, minor, major, blocking, stopped or unknown.",
+            "de": "normal, minor, major, blocking, stopped or unknown.",
+            "es": "normal, minor, major, blocking, stopped or unknown."
+          }
+        },
+        {
+          "key": "state_label",
+          "type": "string",
+          "label": {
+            "en": "State",
+            "fr": "État",
+            "de": "Zustand",
+            "es": "Estado"
+          }
+        },
+        {
+          "key": "disrupted",
+          "type": "boolean",
+          "label": {
+            "en": "Major, blocking or metro down",
+            "fr": "Majeure, bloquante ou métro en panne",
+            "de": "Erheblich, blockierend oder Metro gestört",
+            "es": "Importante, bloqueante o metro averiado"
+          }
+        },
+        {
+          "key": "disruption_count",
+          "type": "number",
+          "label": {
+            "en": "Disruptions under way",
+            "fr": "Perturbations en cours",
+            "de": "Aktuelle Störungen",
+            "es": "Incidencias en curso"
+          }
+        },
+        {
+          "key": "title",
+          "type": "string",
+          "label": {
+            "en": "Title of the alert",
+            "fr": "Titre de l’alerte",
+            "de": "Titel der Meldung",
+            "es": "Título del aviso"
+          }
+        },
+        {
+          "key": "message",
+          "type": "string",
+          "label": {
+            "en": "Alert text",
+            "fr": "Texte de l’alerte",
+            "de": "Text der Meldung",
+            "es": "Texto del aviso"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary",
+            "fr": "Résumé",
+            "de": "Zusammenfassung",
+            "es": "Resumen"
+          },
+          "description": {
+            "en": "A sentence ready to put in a message.",
+            "fr": "Une phrase prête à mettre dans un message.",
+            "de": "Ein Satz, der direkt in eine Nachricht passt.",
+            "es": "Una frase lista para poner en un mensaje."
+          }
+        }
+      ]
+    }
+  ],
+  "widgets": [
+    {
+      "key": "departures",
+      "label": {
+        "en": "STAR departures",
+        "fr": "Départs STAR",
+        "de": "STAR-Abfahrten",
+        "es": "Salidas STAR"
+      },
+      "description": {
+        "en": "The next passages of a stop, in real time.",
+        "fr": "Les prochains passages d’un arrêt, en temps réel.",
+        "de": "Die nächsten Abfahrten einer Haltestelle in Echtzeit.",
+        "es": "Los próximos pasos de una parada, en tiempo real."
+      },
+      "icon": "clock",
+      "settings": [
+        {
+          "key": "stop",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Stop",
+            "fr": "Arrêt",
+            "de": "Haltestelle",
+            "es": "Parada"
+          },
+          "description": {
+            "en": "A stop device of the integration. Leave empty for the first stop, or when you tick devices in “Several stops” below.",
+            "fr": "Un appareil arrêt de l’intégration. Laissez vide pour le premier arrêt, ou si vous cochez des appareils dans « Plusieurs arrêts » ci-dessous.",
+            "de": "Ein Haltestellen-Gerät der Integration. Leer lassen für die erste Haltestelle oder wenn du unten unter „Mehrere Haltestellen“ Geräte ankreuzt.",
+            "es": "Un dispositivo de parada de la integración. Déjalo vacío para la primera parada, o si marcas dispositivos en «Varias paradas» más abajo."
+          },
+          "required": false
+        },
+        {
+          "key": "stops",
+          "type": "multi_select",
+          "source": "devices",
+          "label": {
+            "en": "Several stops",
+            "fr": "Plusieurs arrêts",
+            "de": "Mehrere Haltestellen",
+            "es": "Varias paradas"
+          },
+          "description": {
+            "en": "Stop devices shown together, instead of the stop above. Devices of one stop (one per line) are merged under its name.",
+            "fr": "Des appareils arrêts affichés ensemble, à la place de l’arrêt ci-dessus. Les appareils d’un même arrêt (un par ligne) sont réunis sous son nom.",
+            "de": "Haltestellen-Geräte, die zusammen angezeigt werden, statt der Haltestelle oben. Geräte derselben Haltestelle (eines pro Linie) werden unter ihrem Namen zusammengefasst.",
+            "es": "Dispositivos de parada mostrados juntos, en lugar de la parada de arriba. Los dispositivos de una misma parada (uno por línea) se reúnen bajo su nombre."
+          },
+          "required": false
+        },
+        {
+          "key": "stop_name",
+          "type": "string",
+          "label": {
+            "en": "Other stop",
+            "fr": "Autre arrêt",
+            "de": "Andere Haltestelle",
+            "es": "Otra parada"
+          },
+          "description": {
+            "en": "A stop name or id, to show a stop that is not followed.",
+            "fr": "Un nom ou identifiant d’arrêt, pour afficher un arrêt non suivi.",
+            "de": "Ein Haltestellenname oder eine Kennung, um eine nicht verfolgte Haltestelle anzuzeigen.",
+            "es": "Un nombre o identificador de parada, para mostrar una parada no seguida."
+          },
+          "placeholder": {
+            "en": "Gares",
+            "fr": "Gares",
+            "de": "Gares",
+            "es": "Gares"
+          },
+          "required": false
+        },
+        {
+          "key": "line",
+          "type": "string",
+          "label": {
+            "en": "Line of the other stop",
+            "fr": "Ligne de l’autre arrêt",
+            "de": "Linie der anderen Haltestelle",
+            "es": "Línea de la otra parada"
+          },
+          "placeholder": {
+            "en": "C2",
+            "fr": "C2",
+            "de": "C2",
+            "es": "C2"
+          },
+          "required": false
+        },
+        {
+          "key": "count",
+          "type": "number",
+          "label": {
+            "en": "Routes shown",
+            "fr": "Trajets affichés",
+            "de": "Angezeigte Fahrten",
+            "es": "Trayectos mostrados"
+          },
+          "description": {
+            "en": "One row per line and destination, with its next passages.",
+            "fr": "Une ligne par ligne de bus et destination, avec ses prochains passages.",
+            "de": "Eine Zeile pro Linie und Ziel, mit ihren nächsten Abfahrten.",
+            "es": "Una fila por línea y destino, con sus próximos pasos."
+          },
+          "min": 1,
+          "max": 8,
+          "default": 6,
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "traffic",
+      "label": {
+        "en": "STAR traffic",
+        "fr": "Trafic STAR",
+        "de": "STAR-Verkehrslage",
+        "es": "Tráfico STAR"
+      },
+      "description": {
+        "en": "The state of lines and the alerts of STAR.",
+        "fr": "L’état de lignes et les alertes du STAR.",
+        "de": "Der Zustand von Linien und die Meldungen von STAR.",
+        "es": "El estado de líneas y los avisos de STAR."
+      },
+      "icon": "alert-triangle",
+      "settings": [
+        {
+          "key": "lines",
+          "type": "string",
+          "label": {
+            "en": "Lines",
+            "fr": "Lignes",
+            "de": "Linien",
+            "es": "Líneas"
+          },
+          "description": {
+            "en": "Empty for the followed lines; otherwise up to 6, separated by commas.",
+            "fr": "Vide pour les lignes suivies ; sinon jusqu’à 6, séparées par des virgules.",
+            "de": "Leer für die verfolgten Linien; sonst bis zu 6, durch Kommas getrennt.",
+            "es": "Vacío para las líneas seguidas; si no, hasta 6, separadas por comas."
+          },
+          "placeholder": {
+            "en": "a, C1, 11",
+            "fr": "a, C1, 11",
+            "de": "a, C1, 11",
+            "es": "a, C1, 11"
+          },
+          "required": false
+        }
+      ]
+    },
+    {
+      "key": "metro",
+      "label": {
+        "en": "STAR metro",
+        "fr": "Métro STAR",
+        "de": "STAR-Metro",
+        "es": "Metro STAR"
+      },
+      "description": {
+        "en": "The two metro lines, the closed stations, and the lifts and escalators out of service.",
+        "fr": "Les deux lignes de métro, les stations fermées, les ascenseurs et escaliers en panne.",
+        "de": "Die beiden Metrolinien, die geschlossenen Stationen und die ausgefallenen Aufzüge und Rolltreppen.",
+        "es": "Las dos líneas de metro, las estaciones cerradas y los ascensores y escaleras averiados."
+      },
+      "icon": "activity",
+      "settings": [
+        {
+          "key": "kinds",
+          "type": "multi_select",
+          "label": {
+            "en": "Equipment shown",
+            "fr": "Équipements affichés",
+            "de": "Angezeigte Anlagen",
+            "es": "Equipos mostrados"
+          },
+          "description": {
+            "en": "Leave empty for every kind.",
+            "fr": "Laissez vide pour tous les types.",
+            "de": "Leer lassen für alle Arten.",
+            "es": "Déjalo vacío para todos los tipos."
+          },
+          "options": [
+            {
+              "value": "elevator",
+              "label": {
+                "en": "Lift",
+                "fr": "Ascenseur",
+                "de": "Aufzug",
+                "es": "Ascensor"
+              }
+            },
+            {
+              "value": "escalator",
+              "label": {
+                "en": "Escalator",
+                "fr": "Escalier mécanique",
+                "de": "Rolltreppe",
+                "es": "Escalera mecánica"
+              }
+            },
+            {
+              "value": "parking_elevator",
+              "label": {
+                "en": "Park-and-ride lift",
+                "fr": "Ascenseur de parc relais",
+                "de": "Aufzug des P+R-Parkplatzes",
+                "es": "Ascensor del aparcamiento disuasorio"
+              }
+            }
+          ],
+          "required": false
+        }
+      ]
+    }
+  ]
+}

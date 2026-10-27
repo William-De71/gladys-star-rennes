@@ -1,0 +1,15 @@
+Gladys STAR Rennes integration
+Copyright 2026 William Deren
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+The passages, lines, stops, traffic alerts and the state of the metro come
+from the open data portal of STAR (https://data.explore.star.fr), the bus and
+metro network of Rennes Métropole run by Keolis Rennes, under the Open
+Database License (ODbL 1.0): https://opendatacommons.org/licenses/odbl/1-0/.
+The widgets show the source (STAR) and the time of each reading. The files
+under test/fixtures are extracts of this database, kept under the same
+licence.
+
+This community integration is not affiliated with, endorsed or sponsored by
+STAR, Keolis Rennes or Rennes Métropole.

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1001",
+    "nomcourt": "a",
+    "nomlong": "Rennes (J.F. Kennedy) <> Rennes (La Poterie)",
+    "nomfamillecommerciale": "Métro",
+    "couleurligne": "#ee1d23"
+  },
+  {
+    "id": "1002",
+    "nomcourt": "b",
+    "nomlong": "Cesson-Sévigné (Cesson - Viasilva) <> Rennes <> Saint-Jacques-de-la-Lande (Saint-Jacques - Gaîté)",
+    "nomfamillecommerciale": "Métro",
+    "couleurligne": "#00893e"
+  }
+]

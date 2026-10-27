@@ -1,0 +1,601 @@
+{
+  "devices": {
+    "stopByName": {
+      "external_id": "ext:star-rennes:stop:n-republique_0001_chantepie",
+      "should_poll": false,
+      "params": ["STAR_STOP", "STAR_LINE", "STAR_DIRECTION"],
+      "features": [
+        {
+          "external_id": "ext:star-rennes:stop:n-republique_0001_chantepie:next",
+          "category": "text",
+          "type": "text",
+          "min": 0,
+          "max": 0,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:star-rennes:stop:n-republique_0001_chantepie:wait",
+          "category": "duration",
+          "type": "integer",
+          "unit": "minutes",
+          "min": 0,
+          "max": 180,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:star-rennes:stop:n-republique_0001_chantepie:following",
+          "category": "duration",
+          "type": "integer",
+          "unit": "minutes",
+          "min": 0,
+          "max": 180,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:star-rennes:stop:n-republique_0001_chantepie:delay",
+          "category": "duration",
+          "type": "integer",
+          "unit": "minutes",
+          "min": 0,
+          "max": 120,
+          "read_only": true,
+          "has_feedback": false
+        }
+      ]
+    },
+    "stopById": {
+      "external_id": "ext:star-rennes:stop:i-1168",
+      "should_poll": false,
+      "params": ["STAR_STOP"],
+      "features": [
+        {
+          "external_id": "ext:star-rennes:stop:i-1168:next",
+          "category": "text",
+          "type": "text",
+          "min": 0,
+          "max": 0,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:star-rennes:stop:i-1168:wait",
+          "category": "duration",
+          "type": "integer",
+          "unit": "minutes",
+          "min": 0,
+          "max": 180,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:star-rennes:stop:i-1168:following",
+          "category": "duration",
+          "type": "integer",
+          "unit": "minutes",
+          "min": 0,
+          "max": 180,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:star-rennes:stop:i-1168:delay",
+          "category": "duration",
+          "type": "integer",
+          "unit": "minutes",
+          "min": 0,
+          "max": 120,
+          "read_only": true,
+          "has_feedback": false
+        }
+      ]
+    },
+    "line": {
+      "external_id": "ext:star-rennes:line:0001",
+      "should_poll": false,
+      "params": ["STAR_LINE", "STAR_ROUTE"],
+      "features": [
+        {
+          "external_id": "ext:star-rennes:line:0001:status",
+          "category": "text",
+          "type": "text",
+          "min": 0,
+          "max": 0,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:star-rennes:line:0001:disruptions",
+          "category": "counter-sensor",
+          "type": "integer",
+          "min": 0,
+          "max": 20,
+          "read_only": true,
+          "has_feedback": false
+        }
+      ]
+    },
+    "metroLine": {
+      "external_id": "ext:star-rennes:line:1001",
+      "should_poll": false,
+      "params": ["STAR_LINE", "STAR_ROUTE"],
+      "features": [
+        {
+          "external_id": "ext:star-rennes:line:1001:status",
+          "category": "text",
+          "type": "text",
+          "min": 0,
+          "max": 0,
+          "read_only": true,
+          "has_feedback": false
+        },
+        {
+          "external_id": "ext:star-rennes:line:1001:disruptions",
+          "category": "counter-sensor",
+          "type": "integer",
+          "min": 0,
+          "max": 20,
+          "read_only": true,
+          "has_feedback": false
+        }
+      ]
+    }
+  },
+  "manifest": {
+    "actions": [
+      "test_connection",
+      "search_stop",
+      "add_stop",
+      "remove_stop",
+      "list_stops",
+      "diagnostic"
+    ],
+    "config_schema": [
+      {
+        "key": "intro",
+        "type": "section"
+      },
+      {
+        "key": "stop_1_section",
+        "type": "section"
+      },
+      {
+        "key": "stop_1",
+        "type": "string"
+      },
+      {
+        "key": "stop_1_line",
+        "type": "string"
+      },
+      {
+        "key": "stop_1_direction",
+        "type": "string"
+      },
+      {
+        "key": "stop_2_section",
+        "type": "section"
+      },
+      {
+        "key": "stop_2",
+        "type": "string"
+      },
+      {
+        "key": "stop_2_line",
+        "type": "string"
+      },
+      {
+        "key": "stop_2_direction",
+        "type": "string"
+      },
+      {
+        "key": "stop_3_section",
+        "type": "section"
+      },
+      {
+        "key": "stop_3",
+        "type": "string"
+      },
+      {
+        "key": "stop_3_line",
+        "type": "string"
+      },
+      {
+        "key": "stop_3_direction",
+        "type": "string"
+      },
+      {
+        "key": "lines_section",
+        "type": "section"
+      },
+      {
+        "key": "lines",
+        "type": "string"
+      },
+      {
+        "key": "options_section",
+        "type": "section"
+      },
+      {
+        "key": "interval",
+        "type": "select"
+      },
+      {
+        "key": "language",
+        "type": "select"
+      }
+    ],
+    "scene_triggers": [
+      {
+        "key": "departure_soon",
+        "fields": [
+          {
+            "key": "stop",
+            "options": []
+          },
+          {
+            "key": "minutes",
+            "options": ["2", "3", "5", "10", "15", "20"]
+          }
+        ],
+        "variables": [
+          {
+            "key": "stop_name",
+            "type": "string"
+          },
+          {
+            "key": "line",
+            "type": "string"
+          },
+          {
+            "key": "destination",
+            "type": "string"
+          },
+          {
+            "key": "time",
+            "type": "string"
+          },
+          {
+            "key": "reliable",
+            "type": "boolean"
+          },
+          {
+            "key": "delay_minutes",
+            "type": "number"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "key": "line_disrupted",
+        "fields": [
+          {
+            "key": "line",
+            "options": []
+          },
+          {
+            "key": "severity",
+            "options": ["major", "blocking", "stopped"]
+          }
+        ],
+        "variables": [
+          {
+            "key": "line_name",
+            "type": "string"
+          },
+          {
+            "key": "title",
+            "type": "string"
+          },
+          {
+            "key": "message",
+            "type": "string"
+          },
+          {
+            "key": "url",
+            "type": "string"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "key": "line_restored",
+        "fields": [
+          {
+            "key": "line",
+            "options": []
+          }
+        ],
+        "variables": [
+          {
+            "key": "line_name",
+            "type": "string"
+          },
+          {
+            "key": "state",
+            "type": "string"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "key": "traffic_message",
+        "fields": [
+          {
+            "key": "line",
+            "options": []
+          },
+          {
+            "key": "kind",
+            "options": ["planned", "minor", "major", "blocking"]
+          }
+        ],
+        "variables": [
+          {
+            "key": "line_name",
+            "type": "string"
+          },
+          {
+            "key": "title",
+            "type": "string"
+          },
+          {
+            "key": "message",
+            "type": "string"
+          },
+          {
+            "key": "url",
+            "type": "string"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "key": "equipment_out_of_service",
+        "fields": [
+          {
+            "key": "station",
+            "options": [
+              "15004",
+              "15051",
+              "15052",
+              "15050",
+              "15007",
+              "15010",
+              "15062",
+              "15060",
+              "15008",
+              "15055",
+              "15011",
+              "15012",
+              "15001",
+              "15009",
+              "15053",
+              "15056",
+              "15063",
+              "15015",
+              "15014",
+              "15054",
+              "15061",
+              "15003",
+              "15006",
+              "15058",
+              "15064",
+              "15005",
+              "15013",
+              "15002"
+            ]
+          },
+          {
+            "key": "kind",
+            "options": ["elevator", "escalator", "parking_elevator"]
+          }
+        ],
+        "variables": [
+          {
+            "key": "station_name",
+            "type": "string"
+          },
+          {
+            "key": "equipment_name",
+            "type": "string"
+          },
+          {
+            "key": "kind_label",
+            "type": "string"
+          },
+          {
+            "key": "line_name",
+            "type": "string"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "key": "equipment_back_in_service",
+        "fields": [
+          {
+            "key": "station",
+            "options": [
+              "15004",
+              "15051",
+              "15052",
+              "15050",
+              "15007",
+              "15010",
+              "15062",
+              "15060",
+              "15008",
+              "15055",
+              "15011",
+              "15012",
+              "15001",
+              "15009",
+              "15053",
+              "15056",
+              "15063",
+              "15015",
+              "15014",
+              "15054",
+              "15061",
+              "15003",
+              "15006",
+              "15058",
+              "15064",
+              "15005",
+              "15013",
+              "15002"
+            ]
+          },
+          {
+            "key": "kind",
+            "options": ["elevator", "escalator", "parking_elevator"]
+          }
+        ],
+        "variables": [
+          {
+            "key": "station_name",
+            "type": "string"
+          },
+          {
+            "key": "equipment_name",
+            "type": "string"
+          },
+          {
+            "key": "kind_label",
+            "type": "string"
+          },
+          {
+            "key": "line_name",
+            "type": "string"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      }
+    ],
+    "scene_actions": [
+      {
+        "key": "get_next_departures",
+        "fields": ["stop"],
+        "outputs": [
+          {
+            "key": "stop_name",
+            "type": "string"
+          },
+          {
+            "key": "found",
+            "type": "boolean"
+          },
+          {
+            "key": "line",
+            "type": "string"
+          },
+          {
+            "key": "destination",
+            "type": "string"
+          },
+          {
+            "key": "minutes",
+            "type": "number"
+          },
+          {
+            "key": "time",
+            "type": "string"
+          },
+          {
+            "key": "reliable",
+            "type": "boolean"
+          },
+          {
+            "key": "delay_minutes",
+            "type": "number"
+          },
+          {
+            "key": "following_minutes",
+            "type": "number"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "key": "get_line_traffic",
+        "fields": ["line"],
+        "outputs": [
+          {
+            "key": "line_name",
+            "type": "string"
+          },
+          {
+            "key": "state",
+            "type": "string"
+          },
+          {
+            "key": "state_label",
+            "type": "string"
+          },
+          {
+            "key": "disrupted",
+            "type": "boolean"
+          },
+          {
+            "key": "disruption_count",
+            "type": "number"
+          },
+          {
+            "key": "title",
+            "type": "string"
+          },
+          {
+            "key": "message",
+            "type": "string"
+          },
+          {
+            "key": "summary",
+            "type": "string"
+          }
+        ]
+      }
+    ],
+    "widgets": [
+      {
+        "key": "departures",
+        "settings": ["stop", "stops", "stop_name", "line", "count"],
+        "options": {}
+      },
+      {
+        "key": "traffic",
+        "settings": ["lines"],
+        "options": {}
+      },
+      {
+        "key": "metro",
+        "settings": ["kinds"],
+        "options": {
+          "kinds": ["elevator", "escalator", "parking_elevator"]
+        }
+      }
+    ]
+  }
+}

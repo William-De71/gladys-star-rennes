@@ -1,0 +1,86 @@
+[
+  {
+    "id": "0001",
+    "nomcourt": "C1",
+    "nomlong": "Saint-Grégoire (Champ Daguet) <> Rennes <> Chantepie (Rosa Parks)",
+    "nomfamillecommerciale": "CHRONOSTAR",
+    "couleurligne": "#95c11e"
+  },
+  {
+    "id": "0004",
+    "nomcourt": "C4",
+    "nomlong": "Rennes (ZA Saint-Sulpice) <> Saint-Grégoire (Grand Quartier)",
+    "nomfamillecommerciale": "CHRONOSTAR",
+    "couleurligne": "#6f2282"
+  },
+  {
+    "id": "0005",
+    "nomcourt": "C5",
+    "nomlong": "Rennes (Saint-Laurent) <> Rennes (Lycée Bréquigny)",
+    "nomfamillecommerciale": "CHRONOSTAR",
+    "couleurligne": "#f39200"
+  },
+  {
+    "id": "0006",
+    "nomcourt": "C6",
+    "nomlong": "Cesson-Sévigné (Rigourdière) <> Saint-Jacques-de-la-Lande (Aéroport)",
+    "nomfamillecommerciale": "CHRONOSTAR",
+    "couleurligne": "#61c3d9"
+  },
+  {
+    "id": "0011",
+    "nomcourt": "11",
+    "nomlong": "Rennes (La Poterie) <> Vezin-le-Coquet (ZI Ouest)",
+    "nomfamillecommerciale": "Urbaine",
+    "couleurligne": "#004f9e"
+  },
+  {
+    "id": "0012",
+    "nomcourt": "12",
+    "nomlong": "Rennes (Villejean-Université) <> Saint-Grégoire <> Rennes (La Poterie)",
+    "nomfamillecommerciale": "Urbaine",
+    "couleurligne": "#ba65a5"
+  },
+  {
+    "id": "0014",
+    "nomcourt": "14",
+    "nomlong": "Cesson-Sévigné (Monniais) <> Rennes (Roazhon Park)",
+    "nomfamillecommerciale": "Urbaine",
+    "couleurligne": "#a96f23"
+  },
+  {
+    "id": "0032",
+    "nomcourt": "32",
+    "nomlong": "Saint-Grégoire (Edonia) <> Rennes (Alma Sud)",
+    "nomfamillecommerciale": "Inter-quartiers",
+    "couleurligne": "#61c3d9"
+  },
+  {
+    "id": "0053",
+    "nomcourt": "53",
+    "nomlong": "Rennes (République) <> Vezin-le-Coquet <> L'Hermitage <> La Chapelle-Thouarault (Ville aux Archers)",
+    "nomfamillecommerciale": "Métropolitaine",
+    "couleurligne": "#e4003a"
+  },
+  {
+    "id": "0054",
+    "nomcourt": "54",
+    "nomlong": "Rennes (Charles de Gaulle) <> Le Rheu <> Cintré (Clos de la Vallée)",
+    "nomfamillecommerciale": "Métropolitaine",
+    "couleurligne": "#ba65a5"
+  },
+  {
+    "id": "0067",
+    "nomcourt": "67",
+    "nomlong": "Brécé (Anjou) <> Cesson-Sévigné <> Rennes (République)",
+    "nomfamillecommerciale": "Métropolitaine",
+    "couleurligne": "#e4003a"
+  },
+  {
+    "id": "0804",
+    "nomcourt": "TTZ",
+    "nomlong": "Rennes <> Noyal-Châtillon-sur-Seiche (Touche Tizon)",
+    "nomfamillecommerciale": "Spéciale",
+    "couleurligne": "#009c99"
+  }
+]

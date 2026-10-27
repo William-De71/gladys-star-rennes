@@ -1,0 +1,23 @@
+{
+  "total_count": 2,
+  "results": [
+    {
+      "idligne": "1001",
+      "nomcourt": "a",
+      "etat": "OK",
+      "pannedepuis": null,
+      "finpanneprevue": null,
+      "lastupdate": "2026-10-27T08:11:06+00:00",
+      "route_id": "7-1001"
+    },
+    {
+      "idligne": "1002",
+      "nomcourt": "b",
+      "etat": "OK",
+      "pannedepuis": null,
+      "finpanneprevue": null,
+      "lastupdate": "2026-10-27T08:11:06+00:00",
+      "route_id": "7-1002"
+    }
+  ]
+}

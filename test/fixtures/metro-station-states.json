@@ -1,0 +1,182 @@
+[
+  {
+    "idstation": "15007",
+    "nom": "Charles de Gaulle",
+    "etat": "Ouverte",
+    "idligne": "1001"
+  },
+  {
+    "idstation": "15060",
+    "nom": "Colombier",
+    "etat": "Ouverte",
+    "idligne": "1002"
+  },
+  {
+    "idstation": "15008",
+    "nom": "Gares",
+    "etat": "Ouverte",
+    "idligne": "1001"
+  },
+  {
+    "idstation": "15010",
+    "nom": "Clemenceau",
+    "etat": "Ouverte",
+    "idligne": "1001"
+  },
+  {
+    "idstation": "15006",
+    "nom": "République",
+    "etat": "Ouverte",
+    "idligne": "1001"
+  },
+  {
+    "idstation": "15004",
+    "nom": "Anatole France",
+    "etat": "Ouverte",
+    "idligne": "1001"
+  },
+  {
+    "idstation": "15050",
+    "nom": "Cesson - Viasilva",
+    "etat": "Ouverte",
+    "idligne": "1002"
+  },
+  {
+    "idstation": "15053",
+    "nom": "Joliot-Curie - Chateaubriand",
+    "etat": "Ouverte",
+    "idligne": "1002"
+  },
+  {
+    "idstation": "15009",
+    "nom": "Jacques Cartier",
+    "etat": "Ouverte",
+    "idligne": "1001"
+  },
+  {
+    "idstation": "15001",
+    "nom": "J.F. Kennedy",
+    "etat": "Ouverte",
+    "idligne": "1001"
+  },
+  {
+    "idstation": "15054",
+    "nom": "Les Gayeulles",
+    "etat": "Ouverte",
+    "idligne": "1002"
+  },
+  {
+    "idstation": "15015",
+    "nom": "La Poterie",
+    "etat": "Ouverte",
+    "idligne": "1001"
+  },
+  {
+    "idstation": "15005",
+    "nom": "Sainte-Anne",
+    "etat": "Ouverte",
+    "idligne": "1001"
+  },
+  {
+    "idstation": "15005",
+    "nom": "Sainte-Anne",
+    "etat": "Ouverte",
+    "idligne": "1002"
+  },
+  {
+    "idstation": "15051",
+    "nom": "Atalante",
+    "etat": "Ouverte",
+    "idligne": "1002"
+  },
+  {
+    "idstation": "15014",
+    "nom": "Le Blosne",
+    "etat": "Ouverte",
+    "idligne": "1001"
+  },
+  {
+    "idstation": "15052",
+    "nom": "Beaulieu - Université",
+    "etat": "Ouverte",
+    "idligne": "1002"
+  },
+  {
+    "idstation": "15062",
+    "nom": "Cleunay",
+    "etat": "Ouverte",
+    "idligne": "1002"
+  },
+  {
+    "idstation": "15008",
+    "nom": "Gares",
+    "etat": "Ouverte",
+    "idligne": "1002"
+  },
+  {
+    "idstation": "15055",
+    "nom": "Gros-Chêne",
+    "etat": "Ouverte",
+    "idligne": "1002"
+  },
+  {
+    "idstation": "15011",
+    "nom": "Henri Fréville",
+    "etat": "Ouverte",
+    "idligne": "1001"
+  },
+  {
+    "idstation": "15012",
+    "nom": "Italie",
+    "etat": "Ouverte",
+    "idligne": "1001"
+  },
+  {
+    "idstation": "15056",
+    "nom": "Jules Ferry",
+    "etat": "Ouverte",
+    "idligne": "1002"
+  },
+  {
+    "idstation": "15063",
+    "nom": "La Courrouze",
+    "etat": "Ouverte",
+    "idligne": "1002"
+  },
+  {
+    "idstation": "15061",
+    "nom": "Mabilais",
+    "etat": "Ouverte",
+    "idligne": "1002"
+  },
+  {
+    "idstation": "15003",
+    "nom": "Pontchaillou",
+    "etat": "Ouverte",
+    "idligne": "1001"
+  },
+  {
+    "idstation": "15058",
+    "nom": "Saint-Germain",
+    "etat": "Ouverte",
+    "idligne": "1002"
+  },
+  {
+    "idstation": "15064",
+    "nom": "Saint-Jacques - Gaîté",
+    "etat": "Ouverte",
+    "idligne": "1002"
+  },
+  {
+    "idstation": "15013",
+    "nom": "Triangle",
+    "etat": "Ouverte",
+    "idligne": "1001"
+  },
+  {
+    "idstation": "15002",
+    "nom": "Villejean-Université",
+    "etat": "Ouverte",
+    "idligne": "1001"
+  }
+]

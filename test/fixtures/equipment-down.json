@@ -1,0 +1,92 @@
+[
+  {
+    "idequipement": "ASC_JCA_1",
+    "nom": "Quai vers Kennedy <-> Salle des billets",
+    "idstation": "15009",
+    "nomstation": "Jacques Cartier",
+    "type": "Ascenseur",
+    "typecourt": "ASC",
+    "etat": ["Indisponible"],
+    "idligne": "1001"
+  },
+  {
+    "idequipement": "ESC_SGE_2",
+    "nom": "Quai vers Gaîté -> Salle des billets",
+    "idstation": "15058",
+    "nomstation": "Saint-Germain",
+    "type": "Escalier mécanique",
+    "typecourt": "ESC",
+    "etat": ["Indisponible"],
+    "idligne": "1002"
+  },
+  {
+    "idequipement": "PR_ASC_HFR_2",
+    "nom": "Ascenseur 2 P+R  Henri Fréville",
+    "idstation": "15011",
+    "nomstation": "Henri Fréville",
+    "type": "Ascenseur Parking Relais",
+    "typecourt": "PR_ASC",
+    "etat": ["Indisponible"],
+    "idligne": "1001"
+  },
+  {
+    "idequipement": "ASC_COL_2",
+    "nom": "Quai vers Gaîté <-> Salle des billets",
+    "idstation": "15060",
+    "nomstation": "Colombier",
+    "type": "Ascenseur",
+    "typecourt": "ASC",
+    "etat": ["Indisponible"],
+    "idligne": "1002"
+  },
+  {
+    "idequipement": "ASC_ITA_1",
+    "nom": "Quai vers Kennedy <-> Extérieur",
+    "idstation": "15012",
+    "nomstation": "Italie",
+    "type": "Ascenseur",
+    "typecourt": "ASC",
+    "etat": ["Indisponible"],
+    "idligne": "1001"
+  },
+  {
+    "idequipement": "ASC_REP_1",
+    "nom": "Quai vers Kennedy <-> Extérieur",
+    "idstation": "15006",
+    "nomstation": "République",
+    "type": "Ascenseur",
+    "typecourt": "ASC",
+    "etat": ["Indisponible"],
+    "idligne": "1001"
+  },
+  {
+    "idequipement": "ASC_GAR_1",
+    "nom": "Quai vers Kennedy <-> Salle des billets",
+    "idstation": "15008",
+    "nomstation": "Gares",
+    "type": "Ascenseur",
+    "typecourt": "ASC",
+    "etat": ["Indisponible"],
+    "idligne": "1001"
+  },
+  {
+    "idequipement": "ASC_STA_2",
+    "nom": "Quai vers La Poterie <-> Extérieur",
+    "idstation": "15005",
+    "nomstation": "Sainte-Anne",
+    "type": "Ascenseur",
+    "typecourt": "ASC",
+    "etat": ["Indisponible"],
+    "idligne": "1001"
+  },
+  {
+    "idequipement": "ESC_CVI_2",
+    "nom": "Quai vers Viasilva -> Extérieur",
+    "idstation": "15050",
+    "nomstation": "Cesson - Viasilva",
+    "type": "Escalier mécanique",
+    "typecourt": "ESC",
+    "etat": ["Indisponible"],
+    "idligne": "1002"
+  }
+]

@@ -1,0 +1,356 @@
+[
+  {
+    "id": "5001",
+    "nom": "J.F. Kennedy",
+    "nomcommune": "Rennes",
+    "idstationparente": "15001"
+  },
+  {
+    "id": "5066",
+    "nom": "La Courrouze",
+    "nomcommune": "Saint-Jacques-de-la-Lande",
+    "idstationparente": "15063"
+  },
+  {
+    "id": "5067",
+    "nom": "Cleunay",
+    "nomcommune": "Rennes",
+    "idstationparente": "15062"
+  },
+  {
+    "id": "5075",
+    "nom": "Les Gayeulles",
+    "nomcommune": "Rennes",
+    "idstationparente": "15054"
+  },
+  {
+    "id": "5076",
+    "nom": "Joliot-Curie - Chateaubriand",
+    "nomcommune": "Rennes",
+    "idstationparente": "15053"
+  },
+  {
+    "id": "5060",
+    "nom": "Colombier",
+    "nomcommune": "Rennes",
+    "idstationparente": "15060"
+  },
+  {
+    "id": "5002",
+    "nom": "Villejean-Université",
+    "nomcommune": "Rennes",
+    "idstationparente": "15002"
+  },
+  {
+    "id": "5003",
+    "nom": "Pontchaillou",
+    "nomcommune": "Rennes",
+    "idstationparente": "15003"
+  },
+  {
+    "id": "5004",
+    "nom": "Anatole France",
+    "nomcommune": "Rennes",
+    "idstationparente": "15004"
+  },
+  {
+    "id": "5005",
+    "nom": "Sainte-Anne",
+    "nomcommune": "Rennes",
+    "idstationparente": "15005"
+  },
+  {
+    "id": "5008",
+    "nom": "Gares",
+    "nomcommune": "Rennes",
+    "idstationparente": "15008"
+  },
+  {
+    "id": "5065",
+    "nom": "Saint-Jacques - Gaîté",
+    "nomcommune": "Saint-Jacques-de-la-Lande",
+    "idstationparente": "15064"
+  },
+  {
+    "id": "5068",
+    "nom": "Mabilais",
+    "nomcommune": "Rennes",
+    "idstationparente": "15061"
+  },
+  {
+    "id": "5070",
+    "nom": "Gares",
+    "nomcommune": "Rennes",
+    "idstationparente": "15008"
+  },
+  {
+    "id": "5050",
+    "nom": "Cesson - Viasilva",
+    "nomcommune": "Cesson-Sévigné",
+    "idstationparente": "15050"
+  },
+  {
+    "id": "5051",
+    "nom": "Atalante",
+    "nomcommune": "Cesson-Sévigné",
+    "idstationparente": "15051"
+  },
+  {
+    "id": "5055",
+    "nom": "Gros-Chêne",
+    "nomcommune": "Rennes",
+    "idstationparente": "15055"
+  },
+  {
+    "id": "5057",
+    "nom": "Sainte-Anne",
+    "nomcommune": "Rennes",
+    "idstationparente": "15005"
+  },
+  {
+    "id": "5058",
+    "nom": "Saint-Germain",
+    "nomcommune": "Rennes",
+    "idstationparente": "15058"
+  },
+  {
+    "id": "5062",
+    "nom": "Cleunay",
+    "nomcommune": "Rennes",
+    "idstationparente": "15062"
+  },
+  {
+    "id": "5063",
+    "nom": "La Courrouze",
+    "nomcommune": "Saint-Jacques-de-la-Lande",
+    "idstationparente": "15063"
+  },
+  {
+    "id": "5007",
+    "nom": "Charles de Gaulle",
+    "nomcommune": "Rennes",
+    "idstationparente": "15007"
+  },
+  {
+    "id": "5013",
+    "nom": "Triangle",
+    "nomcommune": "Rennes",
+    "idstationparente": "15013"
+  },
+  {
+    "id": "5015",
+    "nom": "La Poterie",
+    "nomcommune": "Rennes",
+    "idstationparente": "15015"
+  },
+  {
+    "id": "5018",
+    "nom": "Pontchaillou",
+    "nomcommune": "Rennes",
+    "idstationparente": "15003"
+  },
+  {
+    "id": "5020",
+    "nom": "Sainte-Anne",
+    "nomcommune": "Rennes",
+    "idstationparente": "15005"
+  },
+  {
+    "id": "5025",
+    "nom": "Clemenceau",
+    "nomcommune": "Rennes",
+    "idstationparente": "15010"
+  },
+  {
+    "id": "5026",
+    "nom": "Henri Fréville",
+    "nomcommune": "Rennes",
+    "idstationparente": "15011"
+  },
+  {
+    "id": "5064",
+    "nom": "Saint-Jacques - Gaîté",
+    "nomcommune": "Saint-Jacques-de-la-Lande",
+    "idstationparente": "15064"
+  },
+  {
+    "id": "5072",
+    "nom": "Sainte-Anne",
+    "nomcommune": "Rennes",
+    "idstationparente": "15005"
+  },
+  {
+    "id": "5077",
+    "nom": "Beaulieu - Université",
+    "nomcommune": "Rennes",
+    "idstationparente": "15052"
+  },
+  {
+    "id": "5053",
+    "nom": "Joliot-Curie - Chateaubriand",
+    "nomcommune": "Rennes",
+    "idstationparente": "15053"
+  },
+  {
+    "id": "5059",
+    "nom": "Gares",
+    "nomcommune": "Rennes",
+    "idstationparente": "15008"
+  },
+  {
+    "id": "5006",
+    "nom": "République",
+    "nomcommune": "Rennes",
+    "idstationparente": "15006"
+  },
+  {
+    "id": "5010",
+    "nom": "Clemenceau",
+    "nomcommune": "Rennes",
+    "idstationparente": "15010"
+  },
+  {
+    "id": "5011",
+    "nom": "Henri Fréville",
+    "nomcommune": "Rennes",
+    "idstationparente": "15011"
+  },
+  {
+    "id": "5012",
+    "nom": "Italie",
+    "nomcommune": "Rennes",
+    "idstationparente": "15012"
+  },
+  {
+    "id": "5022",
+    "nom": "Charles de Gaulle",
+    "nomcommune": "Rennes",
+    "idstationparente": "15007"
+  },
+  {
+    "id": "5023",
+    "nom": "Gares",
+    "nomcommune": "Rennes",
+    "idstationparente": "15008"
+  },
+  {
+    "id": "5027",
+    "nom": "Italie",
+    "nomcommune": "Rennes",
+    "idstationparente": "15012"
+  },
+  {
+    "id": "5030",
+    "nom": "La Poterie",
+    "nomcommune": "Rennes",
+    "idstationparente": "15015"
+  },
+  {
+    "id": "5028",
+    "nom": "Triangle",
+    "nomcommune": "Rennes",
+    "idstationparente": "15013"
+  },
+  {
+    "id": "5069",
+    "nom": "Colombier",
+    "nomcommune": "Rennes",
+    "idstationparente": "15060"
+  },
+  {
+    "id": "5074",
+    "nom": "Gros-Chêne",
+    "nomcommune": "Rennes",
+    "idstationparente": "15055"
+  },
+  {
+    "id": "5079",
+    "nom": "Cesson - Viasilva",
+    "nomcommune": "Cesson-Sévigné",
+    "idstationparente": "15050"
+  },
+  {
+    "id": "5056",
+    "nom": "Jules Ferry",
+    "nomcommune": "Rennes",
+    "idstationparente": "15056"
+  },
+  {
+    "id": "5061",
+    "nom": "Mabilais",
+    "nomcommune": "Rennes",
+    "idstationparente": "15061"
+  },
+  {
+    "id": "5019",
+    "nom": "Anatole France",
+    "nomcommune": "Rennes",
+    "idstationparente": "15004"
+  },
+  {
+    "id": "5071",
+    "nom": "Saint-Germain",
+    "nomcommune": "Rennes",
+    "idstationparente": "15058"
+  },
+  {
+    "id": "5073",
+    "nom": "Jules Ferry",
+    "nomcommune": "Rennes",
+    "idstationparente": "15056"
+  },
+  {
+    "id": "5078",
+    "nom": "Atalante",
+    "nomcommune": "Cesson-Sévigné",
+    "idstationparente": "15051"
+  },
+  {
+    "id": "5052",
+    "nom": "Beaulieu - Université",
+    "nomcommune": "Rennes",
+    "idstationparente": "15052"
+  },
+  {
+    "id": "5054",
+    "nom": "Les Gayeulles",
+    "nomcommune": "Rennes",
+    "idstationparente": "15054"
+  },
+  {
+    "id": "5009",
+    "nom": "Jacques Cartier",
+    "nomcommune": "Rennes",
+    "idstationparente": "15009"
+  },
+  {
+    "id": "5014",
+    "nom": "Le Blosne",
+    "nomcommune": "Rennes",
+    "idstationparente": "15014"
+  },
+  {
+    "id": "5017",
+    "nom": "Villejean-Université",
+    "nomcommune": "Rennes",
+    "idstationparente": "15002"
+  },
+  {
+    "id": "5021",
+    "nom": "République",
+    "nomcommune": "Rennes",
+    "idstationparente": "15006"
+  },
+  {
+    "id": "5024",
+    "nom": "Jacques Cartier",
+    "nomcommune": "Rennes",
+    "idstationparente": "15009"
+  },
+  {
+    "id": "5029",
+    "nom": "Le Blosne",
+    "nomcommune": "Rennes",
+    "idstationparente": "15014"
+  }
+]
